@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="PakInfoHub — Pakistan information portal for jobs, education, government updates, services and public notices.">
+<meta name="theme-color" content="#1f6f4a">
+<meta name="robots" content="index,follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PakInfoHub | Pakistan Information Portal</title>
+<style>
+*{box-sizing:border-box}
+:root{--green:#087f5b;--dark:#063b2b;--light:#f6f8f7;--text:#17221d;--muted:#66736c;--white:#fff;--border:#e3e9e5;--soft:#eaf7f1;--gold:#e8b84a;--shadow:0 10px 30px #063b2b12}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--text)}
+header{background:linear-gradient(125deg,var(--dark),var(--green));color:#fff;padding:24px 16px 28px;text-align:left;position:relative;overflow:hidden} header:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-110px;top:-170px;background:#ffffff10}
+header h1{margin:0;font-size:34px;letter-spacing:.2px;font-weight:850}
+header p{margin:6px 0 0;opacity:.9;font-size:14px} .brand-accent{display:inline-block;width:42px;height:3px;background:var(--gold);border-radius:99px;margin-top:13px}
+nav{background:#fff;padding:7px 10px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px #063b2b12;border-bottom:1px solid var(--border)}
+nav button{background:none;border:0;color:#314139;padding:10px 13px;cursor:pointer;font-size:14px;font-weight:700;border-radius:8px;transition:.2s} nav button:hover{background:var(--soft);color:var(--green)}
+nav button:hover{background:#ffffff18}
+.container{max-width:1160px;margin:0 auto;padding:24px 14px 44px}
+.hero{background:linear-gradient(135deg,#ffffff 0%,#eef8f3 100%);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero h2{margin:0 0 9px;font-size:32px;line-height:1.15;max-width:700px}
+.hero p{margin:0;color:var(--muted);line-height:1.55}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:23px}
+.stat{background:#fff;border:1px solid var(--border);border-radius:13px;padding:16px;text-align:center;box-shadow:0 5px 16px #063b2b0a}
+.stat strong{display:block;font-size:24px;color:var(--green);font-weight:800}
+.stat span{font-size:12px;color:var(--muted)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;background:#fff;border:1px solid var(--border);padding:12px;border-radius:14px;box-shadow:0 5px 16px #063b2b0a}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ccd5d0;border-radius:8px;font-size:15px;background:#fff}
+input:focus,textarea:focus,select:focus{outline:2px solid #0b5d3b22;border-color:var(--green)}
+.search{flex:1;min-width:220px}
+button{border:0;border-radius:6px;padding:10px 14px;cursor:pointer}
+.primary{background:var(--green);color:#fff;font-weight:800;box-shadow:0 5px 14px #087f5b2b;border:1px solid #087f5b} .gold-accent{color:#8a6508}
+.primary:hover{background:#084a30}
+.secondary{background:#e9eeeb;color:#222}
+.secondary:hover{background:#dce5e0}
+.danger{background:#b42318;color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:#fff;border-radius:16px;padding:19px;box-shadow:0 7px 22px #063b2b0e;border:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;transition:transform .18s,box-shadow .18s}
+.card h3{margin:10px 0 7px;font-size:20px;line-height:1.3}
+.meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+.badge{display:inline-block;background:var(--soft);color:var(--green);padding:6px 11px;border-radius:999px;font-size:11px;font-weight:850;align-self:flex-start;text-transform:uppercase;letter-spacing:.35px}
+.card p{line-height:1.6;white-space:pre-wrap;margin:4px 0 0}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px #073b2918}.card .actions{margin-top:auto;padding-top:15px}
+.actions{display:flex;gap:8px}
+.actions button{flex:1}
+.hidden{display:none}
+.panel{background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 12px #0000000d;margin-bottom:20px;border:1px solid var(--border)}
+.panel h2{margin-top:0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:13px}
+.form-group label{display:block;font-weight:bold;margin-bottom:6px;font-size:14px}
+.notice{padding:12px;border-radius:7px;background:#fff7d6;margin-bottom:15px;font-size:14px;line-height:1.45}
+.empty{text-align:center;padding:40px;background:#fff;border-radius:10px;color:var(--muted);border:1px solid var(--border);grid-column:1/-1}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:24px 0 12px}
+.section-title h2{margin:0;font-size:22px}
+footer{border-top:3px solid var(--gold);text-align:center;padding:28px 15px;color:var(--muted);font-size:13px;background:#fff;border-top:1px solid var(--border)}
+
+/* V23 Responsive navigation */
+.nav-toggle{display:none}
+.nav-links{display:flex;justify-content:center;align-items:center;gap:2px}
+@media(max-width:700px){nav .nav-toggle{display:inline-flex!important;align-items:center;justify-content:center;gap:7px}nav .nav-links{display:none!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;overflow:visible!important}nav .nav-links.open{display:flex!important}nav .nav-links button{display:block;width:100%;text-align:left}}
+@media(max-width:700px){
+  nav{padding:7px 10px;overflow:visible;white-space:normal;text-align:left}
+  .nav-toggle{display:inline-flex;align-items:center;gap:7px;background:var(--soft);color:var(--green);font-weight:850;border:1px solid var(--border);padding:9px 12px}
+  .nav-links{display:none;flex-direction:column;align-items:stretch;gap:3px;margin-top:7px;padding-top:7px;border-top:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-links button{text-align:left;width:100%;padding:11px 12px;font-size:14px}
+}
+@media(max-width:700px){header{padding:27px 13px 24px}header h1{font-size:29px}.stats{grid-template-columns:repeat(2,1fr)}.form-row{grid-template-columns:1fr}.hero{padding:22px 17px}.hero h2{font-size:24px}.toolbar{padding:9px}.search{min-width:100%}.grid{grid-template-columns:1fr}}
+
+.portal-section{margin:0 0 30px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 0 13px}.section-kicker{display:block;color:var(--green);font-size:11px;font-weight:900;letter-spacing:1.4px;margin-bottom:4px}.section-heading h2{margin:0;font-size:24px;line-height:1.15}.section-link{border:0;background:none;color:var(--green);font-weight:800;cursor:pointer;padding:6px 2px}.featured-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);min-height:260px}.featured-media{min-height:260px;background:linear-gradient(135deg,#dfeee7,#f7faf8);display:flex;align-items:center;justify-content:center;overflow:hidden}.featured-media img{width:100%;height:100%;object-fit:cover}.featured-placeholder{font-size:58px;opacity:.55}.featured-copy{padding:27px;display:flex;flex-direction:column;justify-content:center}.featured-copy h3{font-size:28px;line-height:1.18;margin:9px 0 10px}.featured-copy p{color:var(--muted);line-height:1.6;margin:0 0 18px}.featured-meta{font-size:12px;color:var(--muted);margin-bottom:14px}.portal-categories{display:grid;gap:28px;margin-bottom:30px}.category-block{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 5px 18px #063b2b0a}.category-block .section-heading{margin-bottom:16px}.empty-section{padding:24px;border:1px dashed var(--border);border-radius:13px;text-align:center;color:var(--muted);background:#fbfcfb}@media(max-width:700px){.section-heading h2{font-size:21px}.featured-card{grid-template-columns:1fr}.featured-media{min-height:190px;max-height:230px}.featured-copy{padding:21px}.featured-copy h3{font-size:23px}.category-block{padding:15px}}
+
+.bookmark-btn{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:8px;padding:10px 13px;cursor:pointer;font-weight:800}.bookmark-btn:hover{border-color:var(--gold)}.bookmark-btn.saved{background:var(--gold);color:#fff;border-color:var(--gold)}.saved-panel{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:var(--shadow)}.saved-panel h2{margin:0 0 7px}.saved-panel>p{color:var(--muted);margin-top:0}.saved-empty{padding:40px;text-align:center;background:#f8fbf9;border:1px dashed var(--border);border-radius:12px;color:var(--muted);grid-column:1/-1}.article-view{max-width:860px;margin:0 auto}.article-shell{background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.article-cover{height:360px;background:#eaf1ed;display:flex;align-items:center;justify-content:center;overflow:hidden}.article-cover img{width:100%;height:100%;object-fit:cover}.article-cover-placeholder{font-size:80px;opacity:.5}.article-body{padding:32px}.article-body .badge{margin-bottom:12px}.article-body h1{font-size:40px;line-height:1.12;margin:0 0 12px}.article-meta{color:var(--muted);font-size:13px;margin-bottom:24px}.article-content{font-size:17px;line-height:1.8;color:#27322d;white-space:pre-wrap}.article-content p{margin:0 0 17px}.article-actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:28px;padding-top:20px}.related-wrap{margin-top:30px}.related-wrap h2{font-size:24px;margin:0 0 14px}.share-btn{border:1px solid var(--border);background:#fff;color:var(--green);font-weight:800;border-radius:8px;padding:10px 13px;cursor:pointer}.article-back{margin-bottom:14px}@media(max-width:700px){.article-cover{height:230px}.article-body{padding:22px 18px}.article-body h1{font-size:29px}.article-content{font-size:16px;line-height:1.75}}
+
+.discover-panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:21px;margin:0 0 22px;box-shadow:0 6px 20px #063b2b0b}.discover-copy h2{margin:3px 0 5px;font-size:23px}.discover-copy p{margin:0;color:var(--muted);font-size:14px}.discover-controls{display:grid;grid-template-columns:minmax(0,1fr) 190px 160px;gap:10px;margin-top:15px}.discover-search{display:flex;align-items:center;border:1px solid #ccd5d0;border-radius:9px;background:#fff;overflow:hidden}.discover-search>span{padding-left:13px;font-size:22px;color:var(--green)}.discover-search input{border:0!important;outline:0;box-shadow:none!important}.search-clear{border:0;background:none;color:var(--muted);font-weight:700;padding:0 12px;cursor:pointer}.search-summary{min-height:20px;margin-top:10px;color:var(--muted);font-size:13px}.search-summary strong{color:var(--text)}.no-results{grid-column:1/-1;padding:35px 20px;border:1px dashed var(--border);border-radius:14px;background:#fbfcfb;text-align:center}.no-results h3{margin:0 0 6px}.no-results p{margin:0;color:var(--muted)}@media(max-width:760px){.discover-controls{grid-template-columns:1fr}.discover-panel{padding:17px}}
+
+/* V16 Category Pages */
+.category-page{padding:8px 0 35px}
+.category-hero{padding:26px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(135deg,#fff,#f7faf8);margin-bottom:20px}
+.category-hero h1{margin:5px 0 7px}
+.category-hero p{margin:0;color:var(--muted)}
+.category-tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.category-chip{border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:700}
+.category-chip.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.category-back{margin-bottom:12px}
+.category-count{color:var(--muted);font-size:14px}
+
+
+/* V17 Featured & Trending */
+.featured-section,.trending-section{margin:24px 0}
+.featured-section h2,.trending-section h2{margin-bottom:5px}
+.featured-subtitle{color:var(--muted);margin:0 0 14px}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.featured-card{border:1px solid var(--border);border-radius:12px;background:#fff;padding:16px;position:relative}
+.featured-card .featured-badge{display:inline-block;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;background:var(--gold);color:#fff;margin-bottom:8px}
+.trending-rank{font-size:20px;font-weight:900;opacity:.65;margin-right:6px}
+.admin-toggle{display:flex;align-items:center;gap:8px;margin:8px 0 14px}
+@media(max-width:800px){.featured-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.featured-grid{grid-template-columns:1fr}}
+
+
+/* V18 Notifications */
+.notification-wrap{position:relative;display:inline-block}
+.notification-btn{border:1px solid var(--border);background:#fff;border-radius:9px;padding:8px 11px;cursor:pointer;font-weight:800}
+.notification-badge{display:inline-flex;min-width:18px;height:18px;align-items:center;justify-content:center;border-radius:99px;background:#c0392b;color:#fff;font-size:11px;margin-left:4px}
+.notification-panel{position:absolute;right:0;top:46px;width:min(380px,calc(100vw - 28px));background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:0 12px 35px rgba(0,0,0,.14);z-index:1000;padding:12px}
+.notification-head{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 10px}
+.notification-head h3{margin:0}
+.notification-item{padding:11px;border-radius:10px;border:1px solid var(--border);margin:7px 0;cursor:pointer}
+.notification-item.unread{background:#f7faf8;border-left:4px solid var(--gold)}
+.notification-item strong{display:block;margin-bottom:4px}
+.notification-item small{color:var(--muted)}
+.notification-empty{text-align:center;padding:22px;color:var(--muted)}
+.notification-actions{display:flex;gap:7px}
+.notification-link{background:none;border:0;color:var(--gold);font-weight:700;cursor:pointer}
+
+
+/* V19 Feedback & Reactions */
+.feedback-box{margin-top:22px;padding:18px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.feedback-box h3{margin:0 0 5px}.feedback-box p{color:var(--muted);margin:0 0 12px}
+.reaction-row{display:flex;gap:8px;flex-wrap:wrap}
+.reaction-btn{border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}
+.reaction-btn.active{border-color:var(--gold);font-weight:800}
+.feedback-input{width:100%;min-height:80px;border:1px solid var(--border);border-radius:9px;padding:10px;box-sizing:border-box;margin-top:10px}
+
+
+/* V22 Production Tools */
+.production-tools{margin:25px 0;padding:18px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.production-tools h2{margin:0 0 6px}.production-tools p{color:var(--muted)}
+
+
+/* ===== PakInfoHub V26: Mobile/admin fixes + PWA install experience ===== */
+.v24-install-bar{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px auto;padding:12px 14px;max-width:1100px;border:1px solid var(--border);border-radius:12px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.v24-install-bar span{font-weight:700}.v24-install-bar.hidden{display:none}
+@media(max-width:700px){.v24-install-bar{margin:10px 12px;text-align:center}.v24-install-bar button{width:auto}}
+
+/* ===== PakInfoHub V29: Theme switcher ===== */
+body.dark-mode{--light:#101715;--text:#edf4f0;--muted:#aab8b1;--white:#17201d;--border:#2b3934;--soft:#18372d;--shadow:0 10px 30px #00000040;background:var(--light);color:var(--text)}
+body.dark-mode nav,body.dark-mode .hero,body.dark-mode .toolbar,body.dark-mode .card,body.dark-mode .panel,body.dark-mode .empty,body.dark-mode footer,body.dark-mode .saved-panel,body.dark-mode .article-shell,body.dark-mode .discover-panel,body.dark-mode .category-hero,body.dark-mode .category-chip,body.dark-mode .category-block,body.dark-mode .featured-card,body.dark-mode .feedback-box,body.dark-mode .production-tools,body.dark-mode .notification-btn,body.dark-mode .notification-panel,body.dark-mode .notification-item,body.dark-mode .share-btn,body.dark-mode .bookmark-btn,body.dark-mode input,body.dark-mode textarea,body.dark-mode select{background:#17201d;color:var(--text);border-color:var(--border)}
+body.dark-mode .hero{background:linear-gradient(135deg,#17201d,#102b23)}
+body.dark-mode .category-hero{background:linear-gradient(135deg,#17201d,#14231f)}
+body.dark-mode .featured-media{background:linear-gradient(135deg,#20352e,#17201d)}
+body.dark-mode .notification-item.unread{background:#1c3028}
+body.dark-mode .no-results,body.dark-mode .empty-section,body.dark-mode .saved-empty{background:#14201c;border-color:var(--border)}
+body.dark-mode .secondary{background:#26332e;color:var(--text)}
+body.dark-mode nav{box-shadow:0 2px 12px #00000040}
+body.dark-mode nav button{color:#d8e5df}
+body.dark-mode .discover-search{background:#17201d;border-color:var(--border)}
+body.dark-mode .article-content{color:#d8e5df}
+.theme-toggle{border:1px solid var(--border)!important;background:var(--soft)!important;color:var(--green)!important;font-weight:800!important}
+body.dark-mode .theme-toggle{color:#9de2c4!important}
+@media(max-width:700px){.theme-toggle{width:100%!important;text-align:left!important}}
+
+
+/* V31 Reading progress + article text controls */
+#readingProgress{position:fixed;top:0;left:0;width:0;height:4px;background:var(--gold);z-index:1000;transition:width .08s linear;pointer-events:none}
+.article-reading-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px;padding:10px 12px;background:var(--soft);border:1px solid var(--border);border-radius:10px}
+.article-reading-tools strong{font-size:13px;margin-right:auto}
+.article-reading-tools button{padding:7px 10px;background:#fff;border:1px solid var(--border);font-weight:800;color:var(--green)}
+.article-reading-tools button:hover{border-color:var(--green)}
+.article-reading-time{font-size:12px;color:var(--muted);margin-left:4px}
+body.dark-mode .article-reading-tools button{background:#17201d;color:#9de2c4;border-color:var(--border)}
+@media(max-width:700px){.article-reading-tools{align-items:stretch}.article-reading-tools strong{width:100%}.article-reading-tools button{flex:1}}
+
+@media print{
+  body{background:#fff!important;color:#000!important}
+  header,nav,footer,#homeSection,#adminSection,#categoryPage,#savedSection,#recentPage,#articleView,.toolbar,.discover-panel,.featured-section,.trending-section,.portal-categories,.section-title,.actions button.secondary,.actions button.primary{display:none!important}
+  #articleSection{display:block!important;margin:0!important;padding:0!important}
+  #articleSection .panel{border:0!important;box-shadow:none!important;padding:0!important;background:#fff!important}
+  #articleSection .panel>button{display:none!important}
+  #articleSection .section-title,#relatedPosts{display:none!important}
+  #articleSection h1{font-size:28pt!important;color:#000!important}
+  #articleSection .meta{color:#555!important}
+}
+
+/* ===== V35 Reading Position ===== */
+.reading-resume{display:none;margin:0 0 16px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--soft);font-size:13px;align-items:center;gap:10px}
+.reading-resume.show{display:flex}
+.reading-resume span{flex:1;color:var(--muted)}
+.reading-resume button{padding:7px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--green);font-weight:800;cursor:pointer}
+body.dark-mode .reading-resume button{background:#17201d;color:#9de2c4;border-color:var(--border)}
+/* ===== V34 Focus Reading Mode ===== */
+body.focus-reading .site-header, body.focus-reading nav, body.focus-reading footer, body.focus-reading .article-back, body.focus-reading .related-wrap, body.focus-reading .reading-tools, body.focus-reading .article-actions{display:none!important}
+body.focus-reading .article-view{max-width:900px;padding-top:28px}
+body.focus-reading .article-shell{box-shadow:none;border:0}
+body.focus-reading .article-body{padding:38px 20px}
+body.focus-reading .article-content{font-size:19px;line-height:1.95}
+.focus-btn{border:1px solid var(--border);background:#fff;color:var(--green);font-weight:800;border-radius:8px;padding:10px 13px;cursor:pointer}
+@media(max-width:700px){body.focus-reading .article-content{font-size:17px;line-height:1.85}body.focus-reading .article-body{padding:24px 12px}}
+
+/* ===== PakInfoHub V43: Estimated Reading Time ===== */
+.pih-reading-time{display:inline-flex;align-items:center;gap:6px;margin:8px 0;padding:5px 10px;border-radius:999px;font-size:.85rem;opacity:.82;background:rgba(127,127,127,.12)}
+@media print{.pih-reading-time{background:none}}
+
+</style>
+
+<!-- V23 PWA/SEO readiness -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="canonical" href="./">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"PakInfoHub","description":"Pakistan information portal for jobs, education, government updates, services and public notices."}
+</script>
+
+
+<style>
+/* V36 Text-to-Speech */
+.tts-btn{border:1px solid var(--border);background:#fff;color:var(--green);font-weight:800;border-radius:8px;padding:10px 13px;cursor:pointer}
+.tts-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.tts-panel{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 18px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--soft);font-size:13px}
+.tts-panel select{width:auto;min-width:130px}
+body.dark-mode .tts-btn,body.dark-mode .tts-panel{background:#17201d;color:var(--text);border-color:var(--border)}
+</style>
+
+<style>
+/* ===== PakInfoHub V37: Connection Status ===== */
+.connection-status{position:fixed;left:50%;top:12px;transform:translateX(-50%) translateY(-140%);z-index:3000;padding:10px 16px;border-radius:999px;background:#27322d;color:#fff;font-size:13px;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:transform .25s ease;pointer-events:none}.connection-status.show{transform:translateX(-50%) translateY(0)}.connection-status.offline{background:#8a3b2f}.connection-status.online{background:#2d6a4f}.offline-note{display:none;margin:10px auto 0;max-width:1100px;padding:9px 14px;border:1px solid var(--border);border-radius:10px;background:#fff7d6;color:var(--text);font-size:13px;font-weight:700;text-align:center}.offline-note.show{display:block}
+
+/* ===== PakInfoHub V39: Accessibility & Keyboard Support ===== */
+.skip-link{position:fixed;left:12px;top:12px;z-index:5000;transform:translateY(-180%);padding:10px 14px;border-radius:9px;background:var(--text);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.skip-link:focus{transform:translateY(0)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.accessibility-tools{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap;margin:10px 0}
+.accessibility-tools button{border:1px solid var(--border);background:var(--card,#fff);color:var(--text);border-radius:9px;padding:8px 11px;cursor:pointer;font-weight:800}
+.high-contrast{--text:#000;--muted:#222;--border:#555}
+.high-contrast body{letter-spacing:.01em}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* V39 — Article sharing enhancements */
+.share-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.share-tools button{border:1px solid var(--border);background:var(--surface,#fff);border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:700}
+.share-tools button:hover{transform:translateY(-1px)}
+.share-status{font-size:13px;color:var(--muted);min-height:18px;margin-top:6px}
+@media(max-width:600px){.share-tools button{flex:1 1 auto}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
+<div id="connectionStatus" class="connection-status" role="status" aria-live="polite"></div>
+<div id="offlineNote" class="offline-note">📡 You are offline. Previously loaded PakInfoHub content may still be available.</div>
+
+<div id="readingProgress" aria-hidden="true"></div>
+
+<header>
+  <h1>PakInfoHub</h1>
+  <p>Pakistan Information Portal</p>
+</header>
+
+<div id="v25InstallBar" class="v24-install-bar hidden" role="status">
+  <span>📱 Install PakInfoHub on your device for quick access.</span>
+  <button type="button" class="primary" onclick="installPakInfoHub()">Install App</button>
+  <button type="button" class="secondary" onclick="dismissInstallBar()">Not now</button>
+</div>
+
+<nav aria-label="Main navigation">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" onclick="toggleMobileNav()">☰ <span>Menu</span></button>
+  <div id="navLinks" class="nav-links">
+    <button onclick="showHome();closeMobileNav()">Home</button>
+    <button onclick="filterCategory('Jobs');closeMobileNav()">Jobs</button>
+    <button onclick="filterCategory('Education');closeMobileNav()">Education</button>
+    <button onclick="filterCategory('Government');closeMobileNav()">Government</button>
+    <button onclick="filterCategory('Services');closeMobileNav()">Services</button>
+    <button onclick="showCategoryHub();closeMobileNav()">📂 Categories</button>
+    <button onclick="showSaved();closeMobileNav()">🔖 Saved Articles <span id="savedCount" class="saved-count"></span></button>
+    <button onclick="showRecent();closeMobileNav()">🕘 Recently Viewed <span id="recentCount" class="saved-count"></span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" onclick="togglePakInfoHubTheme();closeMobileNav()">🌙 Dark Mode</button>
+    <button onclick="showAdmin();closeMobileNav()">Add / Manage Posts</button>
+  </div>
+</nav>
+
+
+
+<div id="categoryPage" class="hidden">
+  <div class="container category-page">
+    <button class="section-link category-back" onclick="showHome()">← Back to Home</button>
+    <div class="category-hero">
+      <span class="section-kicker">CATEGORIES</span>
+      <h1 id="categoryPageTitle">Browse Categories</h1>
+      <p id="categoryPageDescription">Explore PakInfoHub information by category.</p>
+    </div>
+    <div class="category-tools">
+      <button class="category-chip active" onclick="showCategory('All')">All</button>
+      <button class="category-chip" onclick="showCategory('Jobs')">Jobs</button>
+      <button class="category-chip" onclick="showCategory('Education')">Education</button>
+      <button class="category-chip" onclick="showCategory('Government')">Government</button>
+      <button class="category-chip" onclick="showCategory('Services')">Services</button>
+      <button class="category-chip" onclick="showCategory('Other')">Other</button>
+    </div>
+    <div class="section-title">
+      <h2 id="categoryResultsTitle">All Articles</h2>
+      <span id="categoryResultsCount" class="category-count"></span>
+    </div>
+    <div id="categoryGrid" class="grid"></div>
+  </div>
+</div>
+
+<div id="recentPage" class="hidden">
+  <div class="container category-page">
+    <button class="section-link" onclick="showHome()">← Back to Home</button>
+    <div class="category-hero">
+      <span class="section-kicker">YOUR ACTIVITY</span>
+      <h1>Recently Viewed</h1>
+      <p>Quickly return to articles you recently opened on this device.</p>
+    </div>
+    <div class="section-title">
+      <h2>Recent Articles</h2>
+      <button type="button" class="section-link" onclick="clearRecentArticles()">Clear History</button>
+    </div>
+    <div id="recentGrid" class="grid"></div>
+  </div>
+</div>
+
+<div id="articleView" class="hidden">
+  <div class="container article-view">
+    <button class="section-link article-back" onclick="closeArticle()">← Back to Articles</button>
+    <article class="article-shell">
+      <div id="articleCover" class="article-cover"></div>
+      <div class="article-body">
+        <span id="articleCategory" class="badge"></span>
+        <h1 id="articleTitle"></h1>
+        <div id="articleMeta" class="article-meta"></div>
+        <div id="readingResume" class="reading-resume"><span id="readingResumeText"></span><button type="button" onclick="resumeReadingPosition()">Resume Reading</button><button type="button" onclick="dismissReadingResume()">Dismiss</button></div>
+        <div id="articleContent" class="article-content"></div>
+        <div class="article-actions">
+<div class="share-tools" aria-label="Share options">
+  <button type="button" onclick="copyArticleLink()">🔗 Copy Link</button>
+  <button type="button" onclick="nativeShareArticle()">📤 Share</button>
+  <button type="button" onclick="shareToWhatsApp()">💬 WhatsApp</button>
+  <button type="button" onclick="shareToFacebook()">f Facebook</button>
+  <button type="button" onclick="shareToX()">𝕏 X</button>
+</div>
+<div id="shareStatus" class="share-status" role="status" aria-live="polite"></div>
+
+          <button class="share-btn" onclick="shareArticle()">🔗 Share Article</button>
+          <button class="focus-btn" id="focusReadingBtn" onclick="toggleFocusReading()">📖 Focus Reading</button>
+          <button class="tts-btn" id="ttsButton" onclick="toggleArticleSpeech()">🔊 Listen to Article</button>
+          <button id="articleBookmarkBtn" class="bookmark-btn" onclick="toggleBookmarkFromArticle()">🔖 Save Article</button>
+          <button class="primary" onclick="closeArticle()">← Back to Articles</button>
+        </div>
+      </div>
+    </article>
+    <section class="related-wrap">
+      <h2>Related Articles</h2>
+      <div id="relatedGrid" class="grid"></div>
+    </section>
+  </div>
+</div>
+<div class="container">
+
+
+<div class="accessibility-tools" aria-label="Accessibility tools">
+  <button type="button" onclick="toggleHighContrast()" aria-label="Toggle high contrast">◐ High Contrast</button>
+  <button type="button" onclick="focusMainContent()" aria-label="Jump to main content">↘ Main Content</button>
+</div>
+<section id="homeSection" tabindex="-1">
+  <div class="hero">
+    <div class="badge" style="margin-bottom:11px;border-left:3px solid var(--gold)">🇵🇰 Pakistan Information Hub</div>
+    <h2>Pakistan Information Portal</h2>
+    <p>Find the latest information about government updates, jobs, education, services and important public notices in Pakistan.</p>
+    <div class="stats">
+      <div class="stat"><strong id="totalPosts">0</strong><span>Total Posts</span></div>
+      <div class="stat"><strong id="jobsPosts">0</strong><span>Jobs</span></div>
+      <div class="stat"><strong id="educationPosts">0</strong><span>Education</span></div>
+      <div class="stat"><strong id="govPosts">0</strong><span>Government</span></div>
+      <div class="stat"><strong id="servicesPosts">0</strong><span>Services</span></div>
+      <div class="stat"><strong id="otherPosts">0</strong><span>Other</span></div>
+    </div>
+  </div>
+  
+
+
+
+<section class="featured-section">
+  <div class="section-title"><h2>⭐ Featured Articles</h2></div>
+  <p class="featured-subtitle">Important articles selected for quick access.</p>
+  <div id="featuredGrid" class="featured-grid"></div>
+</section>
+<section class="trending-section">
+  <div class="section-title"><h2>🔥 Trending Now</h2></div>
+  <p class="featured-subtitle">Popular articles based on recent reader activity.</p>
+  <div id="trendingGrid" class="featured-grid"></div>
+</section>
+
+<div class="section-title"><h2>Latest Information</h2>
+<section class="discover-panel">
+  <div class="discover-copy">
+    <span class="section-kicker">DISCOVER</span>
+    <h2>Find information quickly</h2>
+    <p>Search PakInfoHub by title, content or category.</p>
+  </div>
+  <div class="discover-controls">
+    <div class="discover-search">
+      <span>⌕</span>
+      <input id="portalSearch" type="search" placeholder="Search articles..." autocomplete="off">
+      <button id="clearPortalSearch" class="search-clear hidden" type="button">Clear</button>
+    </div>
+    <select id="portalCategoryFilter">
+      <option value="">All Categories</option>
+    </select>
+    <select id="portalSort">
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+      <option value="az">A–Z</option>
+    </select>
+  </div>
+  <div id="searchSummary" class="search-summary"></div>
+</section>
+</div>
+
+  <div class="toolbar">
+    <input id="searchBox" class="search" type="search" placeholder="Search posts..." oninput="renderPosts()">
+    <select id="categoryFilter" onchange="renderPosts()" style="max-width:220px">
+      <option value="All">All Categories</option>
+      <option>Jobs</option>
+      <option>Education</option>
+      <option>Government</option>
+      <option>Services</option>
+      <option>Other</option>
+    </select>
+  </div>
+  
+<section id="featuredSection" class="portal-section hidden">
+  <div class="section-heading"><div><span class="section-kicker">FEATURED</span><h2>Top Story</h2></div></div>
+  <div id="featuredStory"></div>
+</section>
+<section id="latestSection" class="portal-section">
+  <div class="section-heading">
+    <div><span class="section-kicker">LATEST</span><h2>Latest Updates</h2></div>
+    <button class="section-link" onclick="showAllPosts()">View All →</button>
+  </div>
+  <div id="latestGrid" class="grid"></div>
+</section>
+<section id="categorySections" class="portal-categories"></section>
+<div id="postsSectionHeading" class="section-heading" style="margin-top:28px">
+  <div><span class="section-kicker">BROWSE</span><h2>All Posts</h2></div>
+</div>
+<div id="posts" class="grid"></div>
+</section>
+
+<section id="savedSection" class="hidden">
+  <div class="saved-panel">
+    <h2>🔖 Saved Articles</h2>
+    <p>Your saved articles are kept on this device.</p>
+    <div id="savedGrid" class="grid"></div>
+  </div>
+</section>
+
+<section id="adminSection" class="hidden">
+  <div id="adminLoginPanel" class="panel">
+    <h2>Admin Login</h2>
+    <div class="notice">Sign in with your existing Supabase account to manage PakInfoHub posts.</div>
+    <form id="adminLoginForm">
+      <div class="form-group">
+        <label for="adminEmail">Email</label>
+        <input id="adminEmail" type="email" required autocomplete="email" placeholder="Your admin email">
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input id="adminPassword" type="password" required autocomplete="current-password" placeholder="Your Supabase password">
+      </div>
+
+<div class="actions">
+        <button class="primary" type="submit" id="loginBtn">Sign In</button>
+      </div>
+      <div id="loginMessage" class="notice hidden"></div>
+    </form>
+  </div>
+
+  <div id="adminContent" class="hidden">
+  <div class="panel">
+    <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap">
+      <h2 id="formTitle">Add New Post</h2>
+      <button class="secondary" type="button" onclick="adminSignOut()">Sign Out</button>
+    </div>
+    <div class="notice">Posts are stored in your Supabase <strong>Posts</strong> table. You can upload images directly to the <strong>post-images</strong> Storage bucket, or paste an image URL. New posts are published immediately.</div>
+    <form id="postForm">
+      <input type="hidden" id="editId">
+      <div class="form-group">
+        <label for="title">Post Title</label>
+        <input id="title" required placeholder="e.g. New Government Jobs 2026">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option>Jobs</option>
+            <option>Education</option>
+            <option>Government</option>
+            <option>Services</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input id="date" type="date" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="imageFile">Upload Post Image <span style="font-weight:normal;color:#69757d">(optional)</span></label>
+        <input id="imageFile" type="file" accept="image/*">
+        <div id="uploadStatus" class="meta" style="margin-top:6px">Choose an image to upload to Supabase Storage.</div>
+      </div>
+      <div class="form-group">
+        <label for="image">Post Image URL <span style="font-weight:normal;color:#69757d">(optional fallback)</span></label>
+        <input id="image" type="url" placeholder="https://example.com/image.jpg">
+      </div>
+      <div class="admin-toggle" style="margin:8px 0 14px">
+        <label><input type="checkbox" id="featured"> Mark this post as Featured</label>
+      </div>
+      <div class="form-group">
+        <label for="content">Post Content</label>
+        <textarea id="content" rows="8" required placeholder="Write the complete information here..."></textarea>
+      </div>
+      <div class="actions">
+        <button class="primary" type="submit" id="saveBtn">Publish Post</button>
+        <button class="secondary" type="button" onclick="resetForm()">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="admin-dashboard">
+    <div class="admin-stat"><strong id="adminTotalPosts">0</strong><span>Total</span></div>
+    <div class="admin-stat"><strong id="adminJobsPosts">0</strong><span>Jobs</span></div>
+    <div class="admin-stat"><strong id="adminEducationPosts">0</strong><span>Education</span></div>
+    <div class="admin-stat"><strong id="adminGovPosts">0</strong><span>Government</span></div>
+    <div class="admin-stat"><strong id="adminServicesPosts">0</strong><span>Services</span></div>
+  </div>
+
+  <div class="panel">
+    <h2>Manage Posts</h2>
+    <div class="manage-toolbar">
+      <input id="manageSearch" type="search" placeholder="Search your posts..." oninput="renderManage()">
+      <button class="secondary" type="button" onclick="refreshPosts().catch(e=>alert('Could not refresh posts.'))">↻ Refresh</button>
+    </div>
+    <div id="managePosts"></div>
+  </div>
+
+  <div class="panel production-tools">
+    <h2>⚙️ Site Backup</h2>
+    <p class="admin-help">Export or restore this browser's saved preferences, bookmarks, featured articles, notifications and feedback. Your Supabase posts remain stored in the database.</p>
+    <div class="card-actions">
+      <button class="primary" onclick="exportPakInfoHubData()">Export Backup</button>
+      <button class="secondary" onclick="document.getElementById('importPakInfoHubFile').click()">Import Backup</button>
+      <input id="importPakInfoHubFile" type="file" accept=".json,application/json" style="display:none" onchange="importPakInfoHubData(event)">
+    </div>
+  </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  © 2026 PakInfoHub • Pakistan Information Portal
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/*
+  PakInfoHub V7 -> Supabase
+  Expected table: "Posts"
+  Expected columns: id, created_at, title, category, content, image_url, published
+
+  Paste your Supabase Publishable/Anon Key below.
+  The key is intended for browser use; database security must be enforced with RLS.
+*/
+const SUPABASE_URL = "https://wpvdzwjaglznpmcirieu.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_ivu3ROkhxCYK97yx9PunfQ_zbDtk0A-";
+const STORAGE_BUCKET = "post-images";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+let postsCache = [];
+let postsLoaded = false;
+
+const ADMIN_USER_ID = "aab64d27-2c44-4e21-a3d3-5854cb63b81b";
+
+async function getCurrentAdmin(){
+  const { data } = await supabaseClient.auth.getSession();
+  const user = data && data.session ? data.session.user : null;
+  return user && user.id === ADMIN_USER_ID ? user : null;
+}
+
+async function updateAdminUI(){
+  const admin = await getCurrentAdmin();
+  const loginPanel = document.getElementById("adminLoginPanel");
+  const adminContent = document.getElementById("adminContent");
+
+  if(admin){
+    loginPanel.classList.add("hidden");
+    adminContent.classList.remove("hidden");
+    document.getElementById("loginMessage").classList.add("hidden");
+    renderManage();
+  }else{
+    loginPanel.classList.remove("hidden");
+    adminContent.classList.add("hidden");
+  }
+}
+
+async function adminSignOut(){
+  await supabaseClient.auth.signOut();
+  updateAdminUI();
+  alert("You have been signed out.");
+}
+
+document.getElementById("adminLoginForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const btn = document.getElementById("loginBtn");
+  const msg = document.getElementById("loginMessage");
+  btn.disabled = true;
+  btn.textContent = "Signing in...";
+  msg.classList.remove("hidden");
+
+  const email = document.getElementById("adminEmail").value.trim();
+  const password = document.getElementById("adminPassword").value;
+
+  try{
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if(error) throw error;
+
+    if(!data.user || data.user.id !== ADMIN_USER_ID){
+      await supabaseClient.auth.signOut();
+      throw new Error("This account is not authorized as the PakInfoHub administrator.");
+    }
+
+    msg.textContent = "Signed in successfully.";
+    await updateAdminUI();
+  }catch(error){
+    console.error("Admin login error:", error);
+    msg.textContent = error.message || "Sign in failed.";
+  }finally{
+    btn.disabled = false;
+    btn.textContent = "Sign In";
+  }
+});
+
+supabaseClient.auth.onAuthStateChange(function(){
+  setTimeout(updateAdminUI, 0);
+});
+
+async function loadPosts(){
+  const box = document.getElementById("posts");
+  try{
+    const { data, error } = await supabaseClient
+      .from("Posts")
+      .select("id,created_at,title,category,content,image_url,published")
+      .eq("published", true)
+      .order("created_at", { ascending:false });
+
+    if(error) throw error;
+
+    postsCache = (data || []).map(p => ({
+      id: p.id,
+      title: p.title || "",
+      category: p.category || "Other",
+      content: p.content || "",
+      image: p.image_url || "",
+      date: p.created_at ? String(p.created_at).slice(0,10) : "",
+      created_at: p.created_at,
+      published: p.published !== false
+    }));
+
+    postsLoaded = true;
+    renderPosts();
+    renderManage();
+  }catch(error){
+    console.error("Supabase load error:", error);
+    postsLoaded = false;
+    if(box){
+      box.innerHTML = '<div class="empty">Could not load posts from Supabase. Check your Publishable Key, table name, and RLS SELECT policy.</div>';
+    }
+    updateStats();
+  }
+}
+
+function getPosts(){
+  return postsCache;
+}
+
+async function uploadPostImage(file){
+  if(!file) return "";
+
+  const admin = await getCurrentAdmin();
+  if(!admin) throw new Error("Administrator sign-in required.");
+
+  if(!file.type || !file.type.startsWith("image/")){
+    throw new Error("Please choose an image file.");
+  }
+
+  const maxBytes = 5 * 1024 * 1024;
+  if(file.size > maxBytes){
+    throw new Error("Image is too large. Please choose an image up to 5 MB.");
+  }
+
+  const ext = (file.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
+  const safeExt = ext || "jpg";
+  const path = `${admin.id}/${Date.now()}-${Math.random().toString(36).slice(2,10)}.${safeExt}`;
+
+  const status = document.getElementById("uploadStatus");
+  if(status){
+    status.classList.remove("hidden");
+    status.textContent = "Uploading image...";
+  }
+
+  const { error } = await supabaseClient.storage
+    .from(STORAGE_BUCKET)
+    .upload(path, file, {
+      cacheControl: "3600",
+      upsert: false,
+      contentType: file.type
+    });
+
+  if(error) throw error;
+
+  const { data } = supabaseClient.storage
+    .from(STORAGE_BUCKET)
+    .getPublicUrl(path);
+
+  if(!data || !data.publicUrl){
+    throw new Error("Image uploaded, but its public URL could not be generated.");
+  }
+
+  if(status) status.textContent = "Image uploaded successfully.";
+  return data.publicUrl;
+}
+
+async function insertPost(post){
+  if(!await getCurrentAdmin()) throw new Error("Administrator sign-in required.");
+  const payload = {
+    title: post.title,
+    category: post.category,
+    content: post.content,
+    image_url: post.image || null,
+    published: true
+  };
+
+  const { data, error } = await supabaseClient
+    .from("Posts")
+    .insert(payload)
+    .select("id,created_at,title,category,content,image_url,published")
+    .single();
+
+  if(error) throw error;
+  return data;
+}
+
+async function updatePost(id, post){
+  if(!await getCurrentAdmin()) throw new Error("Administrator sign-in required.");
+  const payload = {
+    title: post.title,
+    category: post.category,
+    content: post.content,
+    image_url: post.image || null
+  };
+
+  const { data, error } = await supabaseClient
+    .from("Posts")
+    .update(payload)
+    .eq("id", id)
+    .select("id,created_at,title,category,content,image_url,published")
+    .single();
+
+  if(error) throw error;
+  return data;
+}
+
+async function removePost(id){
+  if(!await getCurrentAdmin()) throw new Error("Administrator sign-in required.");
+  const { error } = await supabaseClient
+    .from("Posts")
+    .delete()
+    .eq("id", id);
+
+  if(error) throw error;
+}
+
+async function refreshPosts(){
+  const { data, error } = await supabaseClient
+    .from("Posts")
+    .select("id,created_at,title,category,content,image_url,published")
+    .eq("published", true)
+    .order("created_at", { ascending:false });
+
+  if(error) throw error;
+
+  postsCache = (data || []).map(p => ({
+    id: p.id,
+    title: p.title || "",
+    category: p.category || "Other",
+    content: p.content || "",
+    image: p.image_url || "",
+    date: p.created_at ? String(p.created_at).slice(0,10) : "",
+    created_at: p.created_at,
+    published: p.published !== false
+  }));
+
+  renderPosts();
+  renderManage();
+}
+
+function updateStats(){
+  const posts=getPosts();
+  const counts={
+    total:posts.length,
+    Jobs:posts.filter(p=>p.category==="Jobs").length,
+    Education:posts.filter(p=>p.category==="Education").length,
+    Government:posts.filter(p=>p.category==="Government").length,
+    Services:posts.filter(p=>p.category==="Services").length,
+    Other:posts.filter(p=>p.category==="Other").length
+  };
+  const map={
+    totalPosts:counts.total,jobsPosts:counts.Jobs,educationPosts:counts.Education,
+    govPosts:counts.Government,servicesPosts:counts.Services,otherPosts:counts.Other,
+    adminTotalPosts:counts.total,adminJobsPosts:counts.Jobs,adminEducationPosts:counts.Education,
+    adminGovPosts:counts.Government,adminServicesPosts:counts.Services
+  };
+  Object.entries(map).forEach(([id,value])=>{
+    const el=document.getElementById(id); if(el) el.textContent=value;
+  });
+}
+
+// Kept for compatibility with the original V7 code.
+function savePosts(posts){
+  postsCache = posts;
+}
+
+
+
+function jsArg(value){
+  return JSON.stringify(String(value)).replace(/</g,"\\u003c");
+}
+
+function escapeHTML(str){
+  return String(str).replace(/[&<>"']/g,function(m){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'})[m];
+  });
+}
+
+
+function updateStats(){
+  const posts=getPosts();
+  const counts={
+    total:posts.length,
+    Jobs:posts.filter(p=>p.category==="Jobs").length,
+    Education:posts.filter(p=>p.category==="Education").length,
+    Government:posts.filter(p=>p.category==="Government").length,
+    Services:posts.filter(p=>p.category==="Services").length,
+    Other:posts.filter(p=>p.category==="Other").length
+  };
+  const map={
+    totalPosts:counts.total,jobsPosts:counts.Jobs,educationPosts:counts.Education,
+    govPosts:counts.Government,servicesPosts:counts.Services,otherPosts:counts.Other,
+    adminTotalPosts:counts.total,adminJobsPosts:counts.Jobs,adminEducationPosts:counts.Education,
+    adminGovPosts:counts.Government,adminServicesPosts:counts.Services
+  };
+  Object.entries(map).forEach(([id,value])=>{
+    const el=document.getElementById(id); if(el) el.textContent=value;
+  });
+}
+
+
+function portalEscape(value){
+  return String(value ?? "").replace(/[&<>"']/g,function(m){
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[m];
+  });
+}
+function portalDate(p){ return p.date || p.created_at || ""; }
+function portalExcerpt(p,max){
+  max=max||150;
+  const t=String(p.content||"").replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
+  return t.length>max?t.slice(0,max).trim()+"...":t;
+}
+function portalCard(p){
+  const image=p.image?`<img src="${portalEscape(p.image)}" alt="${portalEscape(p.title)}" loading="lazy" onerror="this.style.display='none'">`:"";
+  return `<article class="card">${image}<span class="badge">${portalEscape(p.category||"General")}</span><h3>${portalEscape(p.title||"Untitled")}</h3><div class="meta">${portalEscape(formatDate(p.date))}</div><p>${portalEscape(portalExcerpt(p))}</p><div class="actions"><button class="primary" onclick="openPost(${jsArg(p.id)})">Read More</button>${typeof bookmarkButton === "function" ? bookmarkButton(p.id) : ""}</div></article>`;
+}
+function renderPortalSections(posts){
+  const list=Array.isArray(posts)?posts:[];
+  const sorted=list.slice().sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const fs=document.getElementById("featuredSection"), story=document.getElementById("featuredStory");
+  const lg=document.getElementById("latestGrid"), cs=document.getElementById("categorySections");
+  if(!fs||!story||!lg||!cs)return;
+  if(sorted.length){
+    const p=sorted[0];
+    fs.classList.remove("hidden");
+    story.innerHTML=`<article class="featured-card"><div class="featured-media">${p.image?`<img src="${portalEscape(p.image)}" alt="${portalEscape(p.title)}">`:`<div class="featured-placeholder">🇵🇰</div>`}</div><div class="featured-copy"><span class="badge">${portalEscape(p.category||"General")}</span><h3>${portalEscape(p.title||"Untitled")}</h3><div class="featured-meta">${portalEscape(formatDate(p.date))}</div><p>${portalEscape(portalExcerpt(p,230))}</p><div class="actions"><button class="primary" onclick="openPost(${jsArg(p.id)})">Read Full Story →</button></div></div></article>`;
+  }else{fs.classList.add("hidden");story.innerHTML="";}
+  lg.innerHTML=sorted.slice(0,6).map(portalCard).join("")||'<div class="empty-section">No posts available yet.</div>';
+  const preferred=["Jobs","Education","Government","Services"];
+  const present=[...new Set(sorted.map(p=>p.category).filter(Boolean))];
+  const cats=preferred.filter(c=>present.includes(c)).concat(present.filter(c=>!preferred.includes(c)));
+  cs.innerHTML=cats.map(c=>`<section class="category-block"><div class="section-heading"><div><span class="section-kicker">${portalEscape(c).toUpperCase()}</span><h2>${portalEscape(c)}</h2></div><button class="section-link" onclick="filterPortalCategory(${jsArg(c)})">View All →</button></div><div class="grid">${sorted.filter(p=>p.category===c).slice(0,3).map(portalCard).join("")}</div></section>`).join("");
+}
+function showAllPosts(){
+  const el=document.getElementById("postsSectionHeading")||document.getElementById("posts");
+  if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function filterPortalCategory(category){
+  const select=document.getElementById("categoryFilter");
+  if(select){select.value=category;renderPosts();}
+  const el=document.getElementById("postsSectionHeading")||document.getElementById("posts");
+  if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function getAllPortalPosts(){
+  if(typeof getPosts==="function") return getPosts();
+  if(Array.isArray(window.posts)) return window.posts;
+  return [];
+}
+function openPost(id){
+  recordRecentArticle(id);
+  const posts=getAllPortalPosts();
+  const post=posts.find(p=>String(p.id)===String(id));
+  if(!post) return;
+
+  const home=document.querySelector("body > .container");
+  const articleView=document.getElementById("articleView");
+  if(home) home.classList.add("hidden");
+  if(articleView) articleView.classList.remove("hidden");
+
+  const cover=document.getElementById("articleCover");
+  cover.innerHTML=post.image
+    ? `<img src="${portalEscape(post.image)}" alt="${portalEscape(post.title||"Article image")}">`
+    : `<div class="article-cover-placeholder">🇵🇰</div>`;
+
+  document.getElementById("articleCategory").textContent=post.category||"General";
+  document.getElementById("articleTitle").textContent=post.title||"Untitled";
+  document.getElementById("articleMeta").textContent=formatDate(post.date||post.created_at||"");
+  document.getElementById("articleContent").innerHTML=String(post.content||"").split(/\n{2,}/).map(x=>`<p>${portalEscape(x)}</p>`).join("");
+  prepareReadingResume(post.id);
+
+  const related=posts.filter(p=>String(p.id)!==String(post.id) && p.category===post.category).slice(0,3);
+  document.getElementById("relatedGrid").innerHTML=related.map(portalCard).join("") ||
+    `<div class="empty-section">No related articles yet.</div>`;
+
+  window.scrollTo({top:0,behavior:"smooth"});
+  history.pushState({articleId:String(id)},"",`#article-${encodeURIComponent(String(id))}`);
+}
+function closeArticle(){
+  saveReadingPosition();
+  readingPositionArticleId=null;
+  const articleView=document.getElementById("articleView");
+  const home=document.querySelector("body > .container");
+  if(articleView) articleView.classList.add("hidden");
+  if(home) home.classList.remove("hidden");
+  if(location.hash.startsWith("#article-")) history.pushState({},"",location.pathname+location.search);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+async function shareArticle(){
+  const title=document.getElementById("articleTitle")?.textContent||"PakInfoHub Article";
+  const url=location.href;
+  try{
+    if(navigator.share) await navigator.share({title,url});
+    else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert("Article link copied.");}
+    else alert(url);
+  }catch(e){}
+}
+window.addEventListener("popstate",()=>{ if(!location.hash.startsWith("#article-")) closeArticle(); });
+
+let portalSearchState={q:"",category:"",sort:"newest"};
+
+function getPortalSearchPosts(){
+  if(typeof getPosts==="function") return getPosts();
+  if(Array.isArray(window.posts)) return window.posts;
+  return [];
+}
+function populatePortalCategories(posts){
+  const select=document.getElementById("portalCategoryFilter");
+  if(!select)return;
+  const current=select.value;
+  const cats=[...new Set(posts.map(p=>p.category).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b)));
+  select.innerHTML='<option value="">All Categories</option>'+cats.map(c=>`<option value="${portalEscape(c)}">${portalEscape(c)}</option>`).join("");
+  if(cats.includes(current))select.value=current;
+}
+function filterAndSortPortalPosts(posts){
+  const q=portalSearchState.q.trim().toLowerCase();
+  let result=(Array.isArray(posts)?posts:[]).filter(p=>{
+    if(portalSearchState.category && String(p.category||"")!==portalSearchState.category)return false;
+    if(!q)return true;
+    return [p.title,p.content,p.category].some(v=>String(v||"").toLowerCase().includes(q));
+  });
+  result.sort((a,b)=>{
+    if(portalSearchState.sort==="az")return String(a.title||"").localeCompare(String(b.title||""));
+    const ad=new Date(a.date||a.created_at||0),bd=new Date(b.date||b.created_at||0);
+    return portalSearchState.sort==="oldest"?ad-bd:bd-ad;
+  });
+  return result;
+}
+function renderSearchResults(){
+  const posts=getPortalSearchPosts();
+  populatePortalCategories(posts);
+  const results=filterAndSortPortalPosts(posts);
+  const grid=document.getElementById("posts");
+  const summary=document.getElementById("searchSummary");
+  if(summary){
+    const active=portalSearchState.q||portalSearchState.category;
+    summary.innerHTML=active
+      ? `<strong>${results.length}</strong> result${results.length===1?"":"s"} found${portalSearchState.q?` for “${portalEscape(portalSearchState.q)}”`:""}${portalSearchState.category?` in ${portalEscape(portalSearchState.category)}`:""}.`
+      : `<strong>${results.length}</strong> article${results.length===1?"":"s"} available.`;
+  }
+  if(grid){
+    grid.innerHTML=results.length
+      ? results.map(portalCard).join("")
+      : `<div class="no-results"><h3>No articles found</h3><p>Try a different keyword or select another category.</p></div>`;
+  }
+}
+function initPortalSearch(){
+  const input=document.getElementById("portalSearch");
+  const category=document.getElementById("portalCategoryFilter");
+  const sort=document.getElementById("portalSort");
+  const clear=document.getElementById("clearPortalSearch");
+  if(input){
+    input.addEventListener("input",()=>{
+      portalSearchState.q=input.value;
+      if(clear)clear.classList.toggle("hidden",!input.value);
+      renderSearchResults();
+    });
+  }
+  if(category)category.addEventListener("change",()=>{portalSearchState.category=category.value;renderSearchResults();});
+  if(sort)sort.addEventListener("change",()=>{portalSearchState.sort=sort.value;renderSearchResults();});
+  if(clear)clear.addEventListener("click",()=>{input.value="";portalSearchState.q="";clear.classList.add("hidden");renderSearchResults();input.focus();});
+}
+function activatePortalSearch(){
+  const input=document.getElementById("portalSearch");
+  if(input){input.focus();input.select();}
+}
+function renderPosts(){
+  renderPortalSections(getPosts());
+  updateStats();
+  const box=document.getElementById("posts");
+  const search=document.getElementById("searchBox").value.toLowerCase().trim();
+  const cat=document.getElementById("categoryFilter").value;
+  let posts=getPosts().slice().sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+  posts=posts.filter(p=>{
+    const matchesCat=cat==="All" || p.category===cat;
+    const text=(p.title+" "+p.content+" "+p.category).toLowerCase();
+    return matchesCat && text.includes(search);
+  });
+
+  if(!posts.length){
+    box.innerHTML='<div class="empty">No posts found.</div>';
+    return;
+  }
+
+  box.innerHTML=posts.map(p=>{
+    const image=p.image ? `<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" onerror="this.style.display='none'" style="width:100%;height:175px;object-fit:cover;border-radius:8px;margin:-1px 0 13px">` : "";
+    const excerpt=String(p.content).length>150 ? String(p.content).slice(0,150)+"..." : String(p.content);
+    return `
+    <article class="card">
+      ${image}
+      <span class="badge">${escapeHTML(p.category)}</span>
+      <h3>${escapeHTML(p.title)}</h3>
+      <div class="meta">${escapeHTML(formatDate(p.date))}</div>
+      <p>${escapeHTML(excerpt)}</p>
+      <div class="actions">
+        <button class="primary" onclick="openPost(${jsArg(p.id)})">Read More</button>
+        ${typeof bookmarkButton === "function" ? bookmarkButton(p.id) : ""}
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function openPost(id){
+  const p=getPosts().find(x=>String(x.id)===String(id));
+  if(!p)return;
+
+  const image=p.image ? `<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}" onerror="this.style.display='none'" style="width:100%;max-height:430px;object-fit:cover;border-radius:9px;margin:0 0 18px">` : "";
+  const shareText=encodeURIComponent(p.title+" - PakInfoHub");
+  const shareUrl=encodeURIComponent(location.href.split("#")[0]+"#post-"+encodeURIComponent(String(p.id)));
+
+  document.getElementById("homeSection").classList.add("hidden");
+  document.getElementById("adminSection").classList.add("hidden");
+
+  let article=document.getElementById("articleSection");
+  if(!article){
+    article=document.createElement("section");
+    article.id="articleSection";
+    document.querySelector(".container").appendChild(article);
+  }
+  article.className="";
+  article.innerHTML=`
+    <div class="panel">
+      <button class="secondary" onclick="closePost()">← Back to Posts</button>
+      <div style="margin-top:18px">
+        <span class="badge">${escapeHTML(p.category)}</span>
+        <h1 style="font-size:30px;line-height:1.25;margin:10px 0 6px">${escapeHTML(p.title)}</h1>
+        <div class="meta">${escapeHTML(formatDate(p.date))}<span class="article-reading-time" id="articleReadingTime"></span></div>
+        ${image}
+        <div class="article-reading-tools" role="group" aria-label="Reading controls">
+          <strong>📖 Reading controls</strong>
+          <button type="button" onclick="changeArticleTextSize(-1)" aria-label="Decrease text size">A−</button>
+          <button type="button" onclick="resetArticleTextSize()" aria-label="Reset text size">A</button>
+          <button type="button" onclick="changeArticleTextSize(1)" aria-label="Increase text size">A+</button>
+        </div>
+        <div id="articleReadingContent" style="font-size:16px;line-height:1.75;white-space:pre-wrap">${escapeHTML(p.content)}</div>
+        <div style="margin-top:22px;padding-top:16px;border-top:1px solid #e3e8e5">
+          <strong>Share this post</strong>
+          <div class="actions" style="margin-top:10px;flex-wrap:wrap">
+            <button class="primary" onclick="sharePost(${jsArg(shareText)},${jsArg(shareUrl)})">Share</button>
+            <button class="secondary" onclick="copyPostLink(${jsArg(p.id)})">Copy Link</button>
+            <button class="secondary" onclick="copyArticleText(${jsArg(p.id)})">Copy Article Text</button>
+            <button class="secondary" onclick="printCurrentArticle()">🖨️ Print / Save PDF</button>
+            <button class="secondary" onclick="editPost(${jsArg(p.id)})">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-title"><h2>Related Posts</h2></div>
+    <div id="relatedPosts" class="grid"></div>
+  `;
+  renderRelated(p);
+  applyArticleTextSize();
+  updateArticleReadingMeta();
+  updateReadingProgress();
+  window.scrollTo(0,0);
+  setTimeout(updateReadingProgress,50);
+}
+
+function renderRelated(current){
+  const box=document.getElementById("relatedPosts");
+  const related=getPosts().filter(p=>p.id!==current.id && p.category===current.category).slice(0,3);
+  if(!related.length){
+    box.innerHTML='<div class="empty">No related posts yet.</div>';
+    return;
+  }
+  box.innerHTML=related.map(p=>`
+    <article class="card">
+      <span class="badge">${escapeHTML(p.category)}</span>
+      <h3>${escapeHTML(p.title)}</h3>
+      <div class="meta">${escapeHTML(formatDate(p.date))}</div>
+      <p>${escapeHTML(String(p.content).slice(0,110))}${String(p.content).length>110?"...":""}</p>
+      <div class="actions"><button class="primary" onclick="openPost(${jsArg(p.id)})">Read More</button></div>
+    </article>
+  `).join("");
+}
+
+function printCurrentArticle(){
+  window.print();
+}
+
+const ARTICLE_TEXT_SIZE_KEY='pakinfohub_v31_text_size';
+function applyArticleTextSize(){
+  const el=document.getElementById('articleReadingContent');
+  if(!el)return;
+  let size=parseInt(localStorage.getItem(ARTICLE_TEXT_SIZE_KEY)||'16',10);
+  if(![14,16,18,20].includes(size))size=16;
+  el.style.fontSize=size+'px';
+}
+function changeArticleTextSize(delta){
+  let size=parseInt(localStorage.getItem(ARTICLE_TEXT_SIZE_KEY)||'16',10);
+  if(![14,16,18,20].includes(size))size=16;
+  size=Math.max(14,Math.min(20,size+(delta*2)));
+  localStorage.setItem(ARTICLE_TEXT_SIZE_KEY,String(size));
+  applyArticleTextSize();
+}
+function resetArticleTextSize(){localStorage.setItem(ARTICLE_TEXT_SIZE_KEY,'16');applyArticleTextSize();}
+function updateArticleReadingMeta(){
+  const el=document.getElementById('articleReadingTime');
+  const content=document.getElementById('articleReadingContent');
+  if(!el||!content)return;
+  const words=(content.textContent||'').trim().split(/\s+/).filter(Boolean).length;
+  const mins=Math.max(1,Math.ceil(words/200));
+  el.textContent=' • '+mins+' min read';
+}
+function updateReadingProgress(){
+  const bar=document.getElementById('readingProgress');
+  if(!bar)return;
+  const article=document.getElementById('articleSection');
+  if(!article||article.classList.contains('hidden')||!article.isConnected){bar.style.width='0%';return;}
+  const rect=article.getBoundingClientRect();
+  const total=Math.max(1,article.scrollHeight-window.innerHeight);
+  const passed=Math.min(total,Math.max(0,-rect.top));
+  bar.style.width=Math.round((passed/total)*100)+'%';
+}
+window.addEventListener('scroll',updateReadingProgress,{passive:true});
+window.addEventListener('resize',updateReadingProgress);
+
+function closePost(){
+  const article=document.getElementById("articleSection");
+  if(article) article.remove();
+  const bar=document.getElementById('readingProgress');
+  if(bar) bar.style.width='0%';
+  showHome();
+}
+
+function sharePost(text,url){
+  const full=decodeURIComponent(text)+" "+decodeURIComponent(url);
+  if(navigator.share){
+    navigator.share({title:"PakInfoHub",text:decodeURIComponent(text),url:decodeURIComponent(url)}).catch(()=>{});
+  }else{
+    window.open("https://wa.me/?text="+encodeURIComponent(full),"_blank");
+  }
+}
+
+function copyArticleText(id){
+  const p=getPosts().find(x=>String(x.id)===String(id));
+  if(!p)return;
+  const text=String(p.title||"Untitled")+"\n\n"+String(p.content||"");
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>alert("Article text copied." )).catch(()=>fallbackCopyArticleText(text));
+  }else fallbackCopyArticleText(text);
+}
+function fallbackCopyArticleText(text){
+  const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.focus();ta.select();
+  try{document.execCommand("copy");alert("Article text copied.");}catch(e){alert("Could not copy article text.");}
+  ta.remove();
+}
+
+function copyPostLink(id){
+  const url=location.href.split("#")[0]+"#post-"+encodeURIComponent(String(id));
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>alert("Post link copied."));
+  }else{
+    prompt("Copy this link:",url);
+  }
+}
+
+function renderManage(){
+  const box=document.getElementById("managePosts");
+  if(!box)return;
+  const query=(document.getElementById("manageSearch")?.value||"").trim().toLowerCase();
+  const posts=getPosts().slice().sort((a,b)=>new Date(b.date)-new Date(a.date)).filter(p=>{
+    if(!query)return true;
+    return [p.title,p.category,p.content].some(v=>String(v||"").toLowerCase().includes(query));
+  });
+  if(!posts.length){
+    box.innerHTML=query?'<div class="empty">No matching posts.</div>':'<div class="empty">No posts available.</div>';
+    updateStats();
+    return;
+  }
+  box.innerHTML=posts.map(p=>`
+    <div style="padding:12px 0;border-bottom:1px solid #e4e7ea">
+      <strong>${escapeHTML(p.title)}</strong>
+      <div class="meta">${escapeHTML(p.category)} • ${escapeHTML(formatDate(p.date))}</div>
+      <button class="secondary" onclick="editPost(${jsArg(p.id)})">Edit</button>
+      <button class="danger" onclick="deletePost(${jsArg(p.id)})">Delete</button>
+    </div>
+  `).join("");
+}
+
+function formatDate(value){
+  if(!value) return "";
+  const d=new Date(value+"T00:00:00");
+  return d.toLocaleDateString("en-GB",{day:"2-digit",month:"2-digit",year:"numeric"});
+}
+
+function showHome(){
+  document.getElementById("categoryPage")?.classList.add("hidden");
+  document.getElementById("recentPage")?.classList.add("hidden");
+  document.getElementById("homeSection").classList.remove("hidden");
+  document.getElementById("adminSection").classList.add("hidden");
+  document.getElementById("savedSection")?.classList.add("hidden");
+  renderPosts();
+}
+
+async function showAdmin(){
+  document.getElementById("homeSection").classList.add("hidden");
+  document.getElementById("recentPage")?.classList.add("hidden");
+  document.getElementById("categoryPage")?.classList.add("hidden");
+  document.getElementById("adminSection").classList.remove("hidden");
+  document.getElementById("savedSection")?.classList.add("hidden");
+  await updateAdminUI();
+  window.scrollTo(0,0);
+}
+
+function filterCategory(cat){
+  showHome();
+  document.getElementById("categoryFilter").value=cat;
+  document.getElementById("searchBox").value="";
+  renderPosts();
+}
+
+function resetForm(){
+  document.getElementById("postForm").reset();
+  document.getElementById("editId").value="";
+  document.getElementById("date").value=new Date().toISOString().slice(0,10);
+  document.getElementById("imageFile").value="";
+  document.getElementById("uploadStatus").textContent="Choose an image to upload to Supabase Storage.";
+  document.getElementById("formTitle").textContent="Add New Post";
+  document.getElementById("saveBtn").textContent="Publish Post";
+}
+
+document.getElementById("postForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+
+  const saveBtn = document.getElementById("saveBtn");
+  const oldText = saveBtn.textContent;
+  saveBtn.disabled = true;
+  saveBtn.textContent = "Saving...";
+
+  const id = document.getElementById("editId").value;
+  const selectedFile = document.getElementById("imageFile").files[0];
+  let imageUrl = document.getElementById("image").value.trim();
+
+  try{
+    if(selectedFile){
+      imageUrl = await uploadPostImage(selectedFile);
+      document.getElementById("image").value = imageUrl;
+    }
+
+    const post = {
+      title: document.getElementById("title").value.trim(),
+      category: document.getElementById("category").value,
+      image: imageUrl,
+      content: document.getElementById("content").value.trim()
+    };
+
+    if(id){
+      await updatePost(id, post);
+    }else{
+      await insertPost(post);
+    }
+
+    await refreshPosts();
+    resetForm();
+    alert(id ? "Post updated successfully." : "Post published successfully.");
+  }catch(error){
+    console.error("Supabase save error:", error);
+    alert("Could not save the post to Supabase. Check your table columns and RLS policies.\n\n"+error.message);
+  }finally{
+    saveBtn.disabled = false;
+    saveBtn.textContent = oldText;
+  }
+});
+
+function editPost(id){
+  const p=getPosts().find(x=>String(x.id)===String(id));
+  if(!p)return;
+  showAdmin();
+  document.getElementById("editId").value=p.id;
+  document.getElementById("title").value=p.title;
+  document.getElementById("category").value=p.category;
+  document.getElementById("date").value=p.date || "";
+  document.getElementById("image").value=p.image || "";
+  document.getElementById("imageFile").value="";
+  document.getElementById("uploadStatus").textContent=p.image ? "Existing image URL loaded. Choose a new file to replace it." : "Choose an image to upload to Supabase Storage.";
+  document.getElementById("content").value=p.content;
+  document.getElementById("formTitle").textContent="Edit Post";
+  document.getElementById("saveBtn").textContent="Update Post";
+  window.scrollTo(0,0);
+}
+
+async function deletePost(id){
+  const p=getPosts().find(x=>String(x.id)===String(id));
+  if(!p)return;
+  if(!confirm('Delete "'+p.title+'"?'))return;
+
+  try{
+    await removePost(id);
+    await refreshPosts();
+    alert("Post deleted successfully.");
+  }catch(error){
+    console.error("Supabase delete error:", error);
+    alert("Could not delete the post from Supabase. Check your RLS DELETE policy.\n\n"+error.message);
+  }
+}
+
+document.getElementById("date").value=new Date().toISOString().slice(0,10);
+updateAdminUI();
+initPortalSearch();
+loadPosts();
+if(location.hash.indexOf("#post-")===0){
+  const id=decodeURIComponent(location.hash.replace("#post-",""));
+  if(id) openPost(id);
+}
+
+/* ===== PakInfoHub V21: Category Pages ===== */
+const CATEGORY_DESCRIPTIONS = {
+  All: "Browse all published information on PakInfoHub.",
+  Jobs: "Find job openings, recruitment updates and career information.",
+  Education: "Explore admissions, scholarships, exams and education updates.",
+  Government: "Find government announcements, policies and public notices.",
+  Services: "Explore public services, online facilities and useful resources.",
+  Other: "Browse other important information and public updates."
+};
+
+function hideMainViews(){
+  document.getElementById("homeSection")?.classList.add("hidden");
+  document.getElementById("adminSection")?.classList.add("hidden");
+  document.getElementById("articleView")?.classList.add("hidden");
+  document.getElementById("savedSection")?.classList.add("hidden");
+  document.getElementById("categoryPage")?.classList.add("hidden");
+  document.getElementById("recentPage")?.classList.add("hidden");
+}
+function showCategoryHub(){ showCategory("All"); }
+function showCategory(category){
+  hideMainViews();
+  const title = document.getElementById("categoryPageTitle");
+  const desc = document.getElementById("categoryPageDescription");
+  const resultsTitle = document.getElementById("categoryResultsTitle");
+  const count = document.getElementById("categoryResultsCount");
+  const grid = document.getElementById("categoryGrid");
+  const posts = window.postsCache || postsCache || [];
+  const filtered = category === "All" ? posts : posts.filter(p => String(p.category || "Other") === category);
+
+  title.textContent = category === "All" ? "Browse Categories" : category;
+  desc.textContent = CATEGORY_DESCRIPTIONS[category] || CATEGORY_DESCRIPTIONS.Other;
+  resultsTitle.textContent = category === "All" ? "All Articles" : category + " Articles";
+  count.textContent = filtered.length + (filtered.length === 1 ? " article" : " articles");
+
+  document.querySelectorAll(".category-chip").forEach(btn=>{
+    btn.classList.toggle("active", btn.textContent.trim() === category);
+  });
+
+  if(!filtered.length){
+    grid.innerHTML = '<div class="empty">No published articles in this category yet.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p=>{
+    const title = String(p.title || "Untitled").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const cat = String(p.category || "Other").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const id = String(p.id).replace(/'/g,"\\'");
+    return '<div class="card"><div class="card-body"><div class="badge">'+cat+'</div><h3>'+title+'</h3><div class="card-actions"><button class="primary" type="button" onclick="openArticle(\''+id+'\')">Read Article</button></div></div></div>';
+  }).join("");
+}
+
+
+/* ===== PakInfoHub V21: Featured & Trending ===== */
+const FEATURED_KEY = "pakinfohub_v17_featured";
+const TRENDING_KEY = "pakinfohub_v17_views";
+
+function getFeatured(){
+  try { const v=JSON.parse(localStorage.getItem(FEATURED_KEY)||"[]"); return Array.isArray(v)?v.map(String):[]; }
+  catch(e){ return []; }
+}
+function setFeatured(ids){ localStorage.setItem(FEATURED_KEY, JSON.stringify(ids.map(String))); }
+function getViews(){
+  try { const v=JSON.parse(localStorage.getItem(TRENDING_KEY)||"{}"); return v && typeof v==="object"?v:{}; }
+  catch(e){ return {}; }
+}
+function recordArticleView(id){
+  const v=getViews(), k=String(id);
+  v[k]=(Number(v[k])||0)+1;
+  localStorage.setItem(TRENDING_KEY, JSON.stringify(v));
+}
+function v17Posts(){ return window.postsCache || postsCache || []; }
+function cardTitle(p){ return String(p.title||"Untitled").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function v17Card(p, badge){
+  const id=String(p.id).replace(/'/g,"\\'");
+  const cat=String(p.category||"Other").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return '<div class="featured-card">'+(badge?'<span class="featured-badge">'+badge+'</span>':'')+
+    '<div class="badge">'+cat+'</div><h3>'+cardTitle(p)+'</h3>'+
+    '<div class="card-actions"><button class="primary" type="button" onclick="openArticle(\''+id+'\')">Read Article</button>'+
+    (typeof bookmarkButton==="function"?bookmarkButton(p.id):'')+'</div></div>';
+}
+function renderFeaturedTrending(){
+  const posts=v17Posts();
+  const featuredIds=getFeatured();
+  const featured=posts.filter(p=>featuredIds.includes(String(p.id))).slice(0,6);
+  const views=getViews();
+  const trending=posts.slice().sort((a,b)=>(Number(views[b.id])||0)-(Number(views[a.id])||0)).slice(0,6);
+
+  const fg=document.getElementById("featuredGrid");
+  const tg=document.getElementById("trendingGrid");
+  if(fg) fg.innerHTML=featured.length?featured.map(p=>v17Card(p,"⭐ Featured")).join(""):'<div class="empty">No featured articles yet.</div>';
+  if(tg) tg.innerHTML=trending.length?trending.map((p,i)=>v17Card(p,"🔥 #"+(i+1))).join(""):'<div class="empty">No trending articles yet.</div>';
+}
+function toggleFeatured(id){
+  const ids=getFeatured(), k=String(id);
+  const next=ids.includes(k)?ids.filter(x=>x!==k):[...ids,k];
+  setFeatured(next);
+  renderFeaturedTrending();
+}
+function v17InjectFeaturedControls(){
+  const form=document.getElementById("postForm");
+  const featured=document.getElementById("featured");
+  if(!form || !featured) return;
+  // Keep the checkbox synchronized when editing, if an editing id is available.
+  const editId=document.getElementById("postId")?.value;
+  featured.checked=editId ? getFeatured().includes(String(editId)) : false;
+}
+
+
+document.getElementById("postForm")?.addEventListener("submit", function(){
+  setTimeout(function(){
+    const id=document.getElementById("postId")?.value;
+    const checkbox=document.getElementById("featured");
+    if(id && checkbox){
+      const ids=getFeatured(), k=String(id);
+      const next=checkbox.checked ? (ids.includes(k)?ids:[...ids,k]) : ids.filter(x=>x!==k);
+      setFeatured(next);
+      renderFeaturedTrending();
+    }
+  }, 900);
+});
+
+
+/* ===== PakInfoHub V21: Notifications ===== */
+const NOTIFY_KEY = "pakinfohub_v18_notifications";
+const NOTIFY_SEEN_KEY = "pakinfohub_v18_seen_posts";
+
+function getNotifications(){
+  try{ const v=JSON.parse(localStorage.getItem(NOTIFY_KEY)||"[]"); return Array.isArray(v)?v:[]; }
+  catch(e){return [];}
+}
+function setNotifications(v){ localStorage.setItem(NOTIFY_KEY,JSON.stringify(v)); }
+function notificationId(){ return "n_"+Date.now()+"_"+Math.random().toString(36).slice(2,7); }
+function addNotification(title,message,postId,type="new"){
+  const list=getNotifications();
+  if(list.some(n=>String(n.postId)===String(postId)&&n.type===type)) return;
+  list.unshift({id:notificationId(),title,message,postId:String(postId),type,read:false,time:Date.now()});
+  setNotifications(list.slice(0,50));
+}
+function updateNotificationUI(){
+  const list=getNotifications(), unread=list.filter(n=>!n.read).length;
+  const badge=document.getElementById("notificationBadge");
+  if(badge){badge.textContent=unread;badge.style.display=unread?"inline-flex":"none";}
+  const box=document.getElementById("notificationList");
+  if(!box) return;
+  if(!list.length){box.innerHTML='<div class="notification-empty">You’re all caught up. No notifications yet.</div>';return;}
+  box.innerHTML=list.map(n=>{
+    const safeTitle=String(n.title||"Notification").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const safeMsg=String(n.message||"").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const when=new Date(n.time||Date.now()).toLocaleString();
+    return '<div class="notification-item '+(n.read?'':'unread')+'" onclick="openNotification(\''+String(n.id).replace(/'/g,"\\'")+'\')"><strong>'+safeTitle+'</strong><div>'+safeMsg+'</div><small>'+when+'</small></div>';
+  }).join("");
+}
+function toggleNotifications(){
+  const p=document.getElementById("notificationPanel");
+  if(p){p.classList.toggle("hidden");updateNotificationUI();}
+}
+function openNotification(id){
+  const list=getNotifications(), n=list.find(x=>String(x.id)===String(id));
+  if(!n) return;
+  n.read=true; setNotifications(list); updateNotificationUI();
+  if(n.postId) openArticle(n.postId);
+}
+function markAllNotificationsRead(){
+  const list=getNotifications().map(n=>({...n,read:true}));
+  setNotifications(list);updateNotificationUI();
+}
+function clearNotifications(){setNotifications([]);updateNotificationUI();}
+function seedNotificationsFromPosts(){
+  const posts=v17Posts();
+  const seenKey=NOTIFY_SEEN_KEY;
+  let seen=[]; try{seen=JSON.parse(localStorage.getItem(seenKey)||"[]")}catch(e){}
+  if(!Array.isArray(seen))seen=[];
+  const fresh=posts.filter(p=>!seen.includes(String(p.id)));
+  fresh.slice(0,10).forEach(p=>{
+    addNotification("New article available",String(p.title||"A new article is available."),p.id,"new");
+  });
+  const featured=getFeatured();
+  featured.forEach(id=>{
+    const p=posts.find(x=>String(x.id)===String(id));
+    if(p) addNotification("Featured article",String(p.title||"Featured article"),p.id,"featured");
+  });
+  const all=Array.from(new Set([...seen,...posts.map(p=>String(p.id))]));
+  localStorage.setItem(seenKey,JSON.stringify(all));
+  updateNotificationUI();
+}
+
+
+/* ===== V19 Feedback ===== */
+const FEEDBACK_KEY="pakinfohub_v19_feedback";
+function saveFeedback(){
+  const id=window.currentArticleId;
+  if(id==null)return;
+  const data=JSON.parse(localStorage.getItem(FEEDBACK_KEY)||"{}");
+  data[String(id)]={reaction:data[String(id)]?.reaction||null,text:document.getElementById("feedbackText")?.value||"",time:Date.now()};
+  localStorage.setItem(FEEDBACK_KEY,JSON.stringify(data));
+  alert("Thank you for your feedback!");
+}
+function sendReaction(type){
+  const id=window.currentArticleId;if(id==null)return;
+  const data=JSON.parse(localStorage.getItem(FEEDBACK_KEY)||"{}");
+  data[String(id)]={...(data[String(id)]||{}),reaction:type,time:Date.now()};
+  localStorage.setItem(FEEDBACK_KEY,JSON.stringify(data));
+  document.querySelectorAll("#feedbackBox .reaction-btn").forEach(b=>b.classList.toggle("active",b.getAttribute("onclick").includes(type)));
+}
+
+</script>
+
+<script>
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+}
+
+/* ===== V32 Copy Article Text ===== */
+
+/* ===== V22 Production Backup ===== */
+function exportPakInfoHubData(){
+ const keys=["pakinfohub_v15_bookmarks","pakinfohub_v17_featured","pakinfohub_v17_views","pakinfohub_v18_notifications","pakinfohub_v18_seen_posts","pakinfohub_v19_feedback"];
+ const data={version:"V23",created:new Date().toISOString()};
+ keys.forEach(k=>{const v=localStorage.getItem(k);if(v!==null)data[k]=v;});
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="pakinfohub-backup.json";a.click();URL.revokeObjectURL(a.href);
+}
+function importPakInfoHubData(e){
+ const f=e.target.files?.[0];if(!f)return;
+ const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);Object.keys(d).filter(k=>k.startsWith("pakinfohub_")).forEach(k=>localStorage.setItem(k,d[k]));location.reload();}catch(err){alert("Invalid PakInfoHub backup file.");}};r.readAsText(f);
+}
+
+</script>
+
+
+<script>
+/* ===== PakInfoHub V23: Mobile navigation ===== */
+function toggleMobileNav(){
+  const links=document.getElementById('navLinks');
+  const btn=document.querySelector('.nav-toggle');
+  if(!links||!btn)return;
+  const open=links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',String(open));
+  btn.querySelector('span').textContent=open?'Close':'Menu';
+  btn.firstChild.textContent=open?'✕ ':'☰ ';
+}
+function closeMobileNav(){
+  const links=document.getElementById('navLinks');
+  const btn=document.querySelector('.nav-toggle');
+  if(!links||!btn)return;
+  links.classList.remove('open');
+  btn.setAttribute('aria-expanded','false');
+  btn.querySelector('span').textContent='Menu';
+  btn.firstChild.textContent='☰ ';
+}
+window.addEventListener('resize',()=>{if(window.innerWidth>700)closeMobileNav();});
+</script>
+
+<script>
+/* ===== PakInfoHub V26: Installable PWA ===== */
+let v25DeferredInstallPrompt=null;
+const V25_INSTALL_DISMISSED='pakinfohub_v24_install_dismissed';
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  v25DeferredInstallPrompt=e;
+  if(!localStorage.getItem(V25_INSTALL_DISMISSED)) document.getElementById('v25InstallBar')?.classList.remove('hidden');
+});
+window.addEventListener('appinstalled',()=>{
+  v25DeferredInstallPrompt=null;
+  document.getElementById('v25InstallBar')?.classList.add('hidden');
+});
+async function installPakInfoHub(){
+  if(!v25DeferredInstallPrompt){
+    alert('If your browser supports installation, use its browser menu and choose “Install app” or “Add to Home screen”.');
+    return;
+  }
+  v25DeferredInstallPrompt.prompt();
+  await v25DeferredInstallPrompt.userChoice;
+  v25DeferredInstallPrompt=null;
+  document.getElementById('v25InstallBar')?.classList.add('hidden');
+}
+function dismissInstallBar(){
+  localStorage.setItem(V25_INSTALL_DISMISSED,'1');
+  document.getElementById('v25InstallBar')?.classList.add('hidden');
+}
+</script>
+
+<script>
+/* ===== PakInfoHub V28: Recently Viewed Articles ===== */
+const RECENT_KEY = "pakinfohub_v28_recent_articles";
+const RECENT_LIMIT = 8;
+function getRecentArticles(){try{return JSON.parse(localStorage.getItem(RECENT_KEY)||"[]").map(String).slice(0,RECENT_LIMIT);}catch(e){return [];}}
+function setRecentArticles(ids){localStorage.setItem(RECENT_KEY,JSON.stringify(ids.map(String).slice(0,RECENT_LIMIT)));updateRecentCount();}
+function updateRecentCount(){const el=document.getElementById("recentCount");if(el){const n=getRecentArticles().length;el.textContent=n?"("+n+")":"";}}
+function recordRecentArticle(id){const key=String(id);setRecentArticles([key,...getRecentArticles().filter(x=>x!==key)]);}
+function clearRecentArticles(){setRecentArticles([]);renderRecentArticles();}
+function renderRecentArticles(){const grid=document.getElementById("recentGrid");if(!grid)return;const ids=getRecentArticles();const posts=(window.postsCache||postsCache||[]);const items=ids.map(id=>posts.find(p=>String(p.id)===id)).filter(Boolean);if(!items.length){grid.innerHTML='<div class="empty">No recently viewed articles yet. Open an article and it will appear here.</div>';return;}grid.innerHTML=items.map(p=>`<article class="card">${p.image?`<img src="${portalEscape(p.image)}" alt="${portalEscape(p.title||"Article image")}" loading="lazy" onerror="this.style.display='none'" style="width:100%;height:175px;object-fit:cover;border-radius:8px;margin:-1px 0 13px">`:''}<span class="badge">${portalEscape(p.category||"General")}</span><h3>${portalEscape(p.title||"Untitled")}</h3><div class="meta">${portalEscape(formatDate(p.date||p.created_at||""))}</div><div class="actions"><button class="primary" onclick="openPost(${jsArg(p.id)})">Read More</button>${typeof bookmarkButton==='function'?bookmarkButton(p.id):''}</div></article>`).join("");}
+function showRecent(){hideMainViews();document.getElementById("categoryPage")?.classList.add("hidden");const page=document.getElementById("recentPage");if(page)page.classList.remove("hidden");renderRecentArticles();updateRecentCount();}
+
+/* ===== PakInfoHub V27: Saved Articles / Bookmarks ===== */
+const BOOKMARKS_KEY = "pakinfohub_v15_bookmarks";
+function getBookmarks(){
+  try{const v=JSON.parse(localStorage.getItem(BOOKMARKS_KEY)||"[]");return Array.isArray(v)?v.map(String):[];}catch(e){return [];}
+}
+function setBookmarks(ids){localStorage.setItem(BOOKMARKS_KEY,JSON.stringify(ids.map(String)));updateSavedCount();}
+function isBookmarked(id){return getBookmarks().includes(String(id));}
+function updateSavedCount(){const el=document.getElementById("savedCount");if(el)el.textContent=getBookmarks().length?"("+getBookmarks().length+")":"";}
+function refreshBookmarkButtons(){
+ document.querySelectorAll("[data-bookmark-id]").forEach(btn=>{const saved=isBookmarked(btn.dataset.bookmarkId);btn.classList.toggle("saved",saved);btn.textContent=saved?"🔖 Saved":"🔖 Save";});
+ const b=document.getElementById("articleBookmarkBtn");
+ if(b&&window.currentArticleId!=null){const saved=isBookmarked(window.currentArticleId);b.classList.toggle("saved",saved);b.textContent=saved?"🔖 Saved":"🔖 Save Article";}
+}
+function bookmarkButton(id){
+  const key=String(id).replace(/'/g,"\\'");
+  const saved=isBookmarked(id);
+  return `<button type="button" class="bookmark-btn ${saved?'saved':''}" data-bookmark-id="${String(id).replace(/"/g,'&quot;')}" onclick="toggleBookmark('${key}');event.stopPropagation();">${saved?'🔖 Saved':'🔖 Save'}</button>`;
+}
+function toggleBookmark(id){const key=String(id),ids=getBookmarks();const next=ids.includes(key)?ids.filter(x=>x!==key):[key,...ids];setBookmarks(next);refreshBookmarkButtons();renderSavedArticles();return next.includes(key);}
+function renderSavedArticles(){
+ const grid=document.getElementById("savedGrid");if(!grid)return;
+ const ids=getBookmarks();const posts=getAllPortalPosts().filter(p=>ids.includes(String(p.id)));
+ if(!posts.length){grid.innerHTML='<div class="saved-empty">No saved articles yet. Tap “Save” on an article to add it here.</div>';return;}
+ grid.innerHTML=posts.map(p=>`<article class="card">${p.image?`<img src="${portalEscape(p.image)}" alt="${portalEscape(p.title||"Article image")}" loading="lazy" onerror="this.style.display='none'" style="width:100%;height:175px;object-fit:cover;border-radius:8px;margin:-1px 0 13px">`:""}<span class="badge">${portalEscape(p.category||"General")}</span><h3>${portalEscape(p.title||"Untitled")}</h3><div class="meta">${portalEscape(formatDate(p.date||p.created_at||""))}</div><div class="actions"><button class="primary" onclick="openPost(${jsArg(p.id)})">Read More</button>${bookmarkButton(p.id)}</div></article>`).join("");
+ refreshBookmarkButtons();
+}
+function showSaved(){
+ document.getElementById("categoryPage")?.classList.add("hidden");
+ document.getElementById("articleView")?.classList.add("hidden");
+ document.getElementById("homeSection")?.classList.add("hidden");
+ document.getElementById("adminSection")?.classList.add("hidden");
+ document.getElementById("savedSection")?.classList.remove("hidden");
+ closeMobileNav();renderSavedArticles();window.scrollTo({top:0,behavior:"smooth"});
+}
+function toggleBookmarkFromArticle(){if(window.currentArticleId!=null){toggleBookmark(window.currentArticleId);}}
+// Ensure the current article id is tracked by wrapping the production article opener.
+const v27OriginalOpenPost = window.openPost;
+window.openPost = function(id){window.currentArticleId=String(id);recordRecentArticle(id);v27OriginalOpenPost(id);refreshBookmarkButtons();};
+const v27OriginalCloseArticle = window.closeArticle;
+window.closeArticle = function(){v27OriginalCloseArticle();window.currentArticleId=null;};
+document.addEventListener("click",e=>{const btn=e.target.closest("[data-bookmark-id]");if(btn){setTimeout(()=>{refreshBookmarkButtons();renderSavedArticles();},0);}});
+updateSavedCount();
+updateRecentCount();
+</script>
+<script>
+/* ===== PakInfoHub V29: Dark mode ===== */
+const THEME_KEY='pakinfohub_v29_theme';
+function applyPakInfoHubTheme(){
+  const dark=localStorage.getItem(THEME_KEY)==='dark';
+  document.body.classList.toggle('dark-mode',dark);
+  const btn=document.getElementById('themeToggle');
+  if(btn)btn.textContent=dark?'☀️ Light Mode':'🌙 Dark Mode';
+}
+function togglePakInfoHubTheme(){
+  const dark=!document.body.classList.contains('dark-mode');
+  localStorage.setItem(THEME_KEY,dark?'dark':'light');
+  applyPakInfoHubTheme();
+}
+applyPakInfoHubTheme();
+</script>
+
+
+<script>
+/* ===== PakInfoHub V33: Complete Local Data Backup ===== */
+function exportPakInfoHubData(){
+  const data={version:"V33",created:new Date().toISOString(),storage:{}};
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k && k.startsWith('pakinfohub_')) data.storage[k]=localStorage.getItem(k);
+  }
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='pakinfohub-backup-v33.json'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function importPakInfoHubData(e){
+  const f=e.target.files?.[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result), storage=d.storage||d;
+      let count=0;
+      Object.keys(storage).filter(k=>k.startsWith('pakinfohub_')).forEach(k=>{localStorage.setItem(k,storage[k]);count++;});
+      alert(count+' PakInfoHub settings/data items restored. The page will reload.');
+      location.reload();
+    }catch(err){alert('Invalid PakInfoHub backup file.');}
+  };
+  r.readAsText(f);
+}
+</script>
+
+
+/* ===== V35 Reading Position ===== */
+let readingPositionArticleId=null;
+let readingPositionTimer=null;
+function readingPositionKey(id){return 'pakinfohub_reading_position_'+String(id);}
+function getReadingPosition(id){try{return JSON.parse(localStorage.getItem(readingPositionKey(id))||'null')}catch(e){return null}}
+function saveReadingPosition(){
+  if(!readingPositionArticleId || !document.getElementById('articleView') || document.getElementById('articleView').classList.contains('hidden')) return;
+  const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+  if(max<120) return;
+  const ratio=Math.max(0,Math.min(1,window.scrollY/max));
+  if(ratio<0.05 || ratio>0.96) return;
+  try{localStorage.setItem(readingPositionKey(readingPositionArticleId),JSON.stringify({ratio:ratio,updated:Date.now()}));}catch(e){}
+}
+function prepareReadingResume(id){
+  readingPositionArticleId=id;
+  const box=document.getElementById('readingResume'), text=document.getElementById('readingResumeText');
+  if(!box||!text) return;
+  const saved=getReadingPosition(id);
+  if(saved && saved.ratio>0.05 && saved.ratio<0.96){
+    text.textContent='You stopped around '+Math.round(saved.ratio*100)+'% through this article.';
+    box.classList.add('show');
+  } else box.classList.remove('show');
+}
+function resumeReadingPosition(){
+  const saved=getReadingPosition(readingPositionArticleId);
+  const box=document.getElementById('readingResume');
+  if(!saved) return;
+  box&&box.classList.remove('show');
+  requestAnimationFrame(()=>{
+    const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+    window.scrollTo({top:Math.round(max*saved.ratio),behavior:'smooth'});
+  });
+}
+function dismissReadingResume(){document.getElementById('readingResume')?.classList.remove('show');}
+window.addEventListener('scroll',()=>{if(readingPositionTimer) return; readingPositionTimer=setTimeout(()=>{readingPositionTimer=null;saveReadingPosition()},250)},{passive:true});
+window.addEventListener('beforeunload',saveReadingPosition);
+/* ===== V34 Focus Reading Mode ===== */
+const FOCUS_READING_KEY="pakinfohub_v34_focus_reading";
+function toggleFocusReading(){
+  const active=document.body.classList.toggle("focus-reading");
+  localStorage.setItem(FOCUS_READING_KEY,active?"1":"0");
+  const b=document.getElementById("focusReadingBtn");
+  if(b)b.textContent=active?"↩ Exit Focus Mode":"📖 Focus Reading";
+}
+function restoreFocusReading(){
+  if(localStorage.getItem(FOCUS_READING_KEY)==="1")document.body.classList.add("focus-reading");
+}
+window.addEventListener("load",restoreFocusReading);
+
+<script>
+/* ===== PakInfoHub V36: Article Text-to-Speech ===== */
+const TTS_RATE_KEY='pakinfohub_v36_tts_rate';
+let pakTtsUtterance=null, pakTtsPlaying=false;
+function getTtsRate(){const n=parseFloat(localStorage.getItem(TTS_RATE_KEY)||'1');return [0.75,1,1.25,1.5].includes(n)?n:1;}
+function toggleArticleSpeech(){
+  if(!('speechSynthesis' in window)){alert('Text-to-speech is not supported by this browser.');return;}
+  if(pakTtsPlaying){speechSynthesis.cancel();pakTtsPlaying=false;updateTtsButton();return;}
+  const title=document.getElementById('articleTitle')?.textContent||'';
+  const content=document.getElementById('articleContent')?.innerText||'';
+  const text=(title+'\n\n'+content).trim();
+  if(!text)return;
+  pakTtsUtterance=new SpeechSynthesisUtterance(text);
+  pakTtsUtterance.rate=getTtsRate();
+  pakTtsUtterance.onstart=()=>{pakTtsPlaying=true;updateTtsButton();};
+  pakTtsUtterance.onend=()=>{pakTtsPlaying=false;updateTtsButton();};
+  pakTtsUtterance.onerror=()=>{pakTtsPlaying=false;updateTtsButton();};
+  speechSynthesis.cancel(); speechSynthesis.speak(pakTtsUtterance);
+}
+function updateTtsButton(){const b=document.getElementById('ttsButton');if(b){b.textContent=pakTtsPlaying?'⏹️ Stop Listening':'🔊 Listen to Article';b.classList.toggle('active',pakTtsPlaying);}}
+function stopArticleSpeech(){if('speechSynthesis' in window)speechSynthesis.cancel();pakTtsPlaying=false;updateTtsButton();}
+const v36OldOpenPost=window.openPost;
+if(typeof v36OldOpenPost==='function'){window.openPost=function(id){stopArticleSpeech();v36OldOpenPost(id);};}
+const v36OldCloseArticle=window.closeArticle;
+if(typeof v36OldCloseArticle==='function'){window.closeArticle=function(){stopArticleSpeech();v36OldCloseArticle();};}
+window.addEventListener('beforeunload',stopArticleSpeech);
+</script>
+
+<script>
+/* ===== PakInfoHub V37: Connection Status ===== */
+(function(){
+  const status=document.getElementById('connectionStatus');
+  const note=document.getElementById('offlineNote');
+  let timer=null;
+  function setState(online, announce){
+    if(!status) return;
+    status.className='connection-status '+(online?'online':'offline')+' show';
+    status.textContent=online?'✓ Back online':'📡 You are offline';
+    if(note) note.classList.toggle('show',!online);
+    clearTimeout(timer);
+    if(online) timer=setTimeout(()=>status.classList.remove('show'),2200);
+  }
+  function refresh(){setState(navigator.onLine,false);}
+  window.addEventListener('online',()=>setState(true,true));
+  window.addEventListener('offline',()=>setState(false,true));
+  window.addEventListener('load',refresh);
+})();
+</script>
+
+<script>
+/* ===== PakInfoHub V39: Accessibility & Keyboard Support ===== */
+(function(){
+  const KEY='pakinfohub_high_contrast';
+  function apply(){
+    const on=localStorage.getItem(KEY)==='1';
+    document.documentElement.classList.toggle('high-contrast',on);
+  }
+  window.toggleHighContrast=function(){
+    const on=localStorage.getItem(KEY)==='1';
+    localStorage.setItem(KEY,on?'0':'1'); apply();
+  };
+  window.focusMainContent=function(){
+    const el=document.getElementById('homeSection');
+    if(el){el.focus({preventScroll:false}); el.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+  };
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/' && !/input|textarea|select/i.test(document.activeElement.tagName)){
+      const box=document.getElementById('searchBox');
+      if(box){e.preventDefault();box.focus();}
+    }
+    if(e.key==='Escape' && document.activeElement && document.activeElement.matches('input[type="search"],textarea')){
+      document.activeElement.blur();
+    }
+  });
+  apply();
+})();
+
+function currentArticleShareUrl(){ return window.location.href; }
+function setShareStatus(msg){ const el=document.getElementById('shareStatus'); if(el) el.textContent=msg; }
+async function copyArticleLink(){
+  const url=currentArticleShareUrl();
+  try{ await navigator.clipboard.writeText(url); setShareStatus('Article link copied.'); }
+  catch(e){ setShareStatus('Copy failed — use your browser share option.'); }
+}
+async function nativeShareArticle(){
+  const title=(document.getElementById('articleTitle')||{}).textContent||'PakInfoHub article';
+  const url=currentArticleShareUrl();
+  if(navigator.share){
+    try{ await navigator.share({title:title,text:title+' - PakInfoHub',url:url}); setShareStatus('Shared successfully.'); }
+    catch(e){ if(e && e.name!=='AbortError') setShareStatus('Sharing was not completed.'); }
+  }else{ setShareStatus('Native sharing is not supported in this browser. Use one of the share options below.'); }
+}
+function shareToWhatsApp(){ const title=(document.getElementById('articleTitle')||{}).textContent||'PakInfoHub article'; window.open('https://wa.me/?text='+encodeURIComponent(title+' '+currentArticleShareUrl()),'_blank','noopener'); }
+function shareToFacebook(){ window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(currentArticleShareUrl()),'_blank','noopener'); }
+function shareToX(){ const title=(document.getElementById('articleTitle')||{}).textContent||'PakInfoHub article'; window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(title)+'&url='+encodeURIComponent(currentArticleShareUrl()),'_blank','noopener'); }
+</script>
+<script>
+/* ===== PakInfoHub V41: Print-friendly Article Mode ===== */
+(function(){
+  function addPrintButton(){
+    const actions=document.querySelector('.article-actions');
+    if(!actions || document.getElementById('printArticleBtn')) return;
+    const b=document.createElement('button'); b.id='printArticleBtn'; b.className='share-btn'; b.textContent='🖨️ Print Article';
+    b.addEventListener('click',()=>window.print()); actions.appendChild(b);
+  }
+  function mark(){ document.documentElement.dataset.printArticle = location.hash.startsWith('#article'); }
+  addPrintButton(); mark();
+  new MutationObserver(addPrintButton).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+<style>
+@media print {
+  body * { visibility:hidden !important; }
+  #articleView, #articleView * { visibility:visible !important; }
+  #articleView { position:absolute !important; left:0 !important; top:0 !important; width:100% !important; }
+  .article-actions, nav, header, footer { display:none !important; }
+  .article-shell { box-shadow:none !important; border:0 !important; }
+  .article-content { font-size:12pt !important; line-height:1.65 !important; }
+  .article-cover { max-height:260px !important; overflow:hidden !important; }
+}
+
+/* ===== PakInfoHub V43: Reading Progress ===== */
+#readingProgressWrap{position:fixed;top:0;left:0;width:100%;height:4px;background:transparent;z-index:3000;pointer-events:none}
+#readingProgress{height:100%;width:0%;background:currentColor;transform-origin:left center;transition:width .08s linear}
+@media print{#readingProgressWrap{display:none!important}}
+</style>
+
+<script>
+/* ===== PakInfoHub V43: Reading Progress ===== */
+(function(){
+  function ensureBar(){
+    if(document.getElementById('readingProgressWrap')) return;
+    const wrap=document.createElement('div'); wrap.id='readingProgressWrap';
+    const bar=document.createElement('div'); bar.id='readingProgress';
+    wrap.appendChild(bar); document.body.appendChild(wrap);
+  }
+  function update(){
+    const bar=document.getElementById('readingProgress'); if(!bar) return;
+    const article=document.querySelector('.article-view:not(.hidden) .article-shell, #articleView .article-shell');
+    if(!article || document.getElementById('articleView')?.classList.contains('hidden')){bar.style.width='0%';return;}
+    const top=Math.max(0,window.scrollY - article.offsetTop);
+    const total=Math.max(1,article.scrollHeight-window.innerHeight);
+    bar.style.width=Math.min(100,Math.max(0,(top/total)*100))+'%';
+  }
+  function init(){ensureBar(); update();}
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  window.addEventListener('hashchange',()=>setTimeout(update,50));
+  window.addEventListener('load',init);
+  new MutationObserver(()=>setTimeout(update,30)).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+})();
+</script>
+
+<script>
+/* PakInfoHub V43 — Estimated reading time */
+(function(){
+  function addReadingTime(){
+    if(document.querySelector('.pih-reading-time')) return;
+    var candidates=['article','.article-content','.article-body','.post-content','.content'];
+    var el=null;
+    for(var i=0;i<candidates.length;i++){var x=document.querySelector(candidates[i]); if(x){el=x;break;}}
+    if(!el) return;
+    var text=(el.innerText||'').trim();
+    if(!text || text.length<120) return;
+    var words=text.split(/\s+/).filter(Boolean).length;
+    var mins=Math.max(1,Math.ceil(words/200));
+    var badge=document.createElement('div');
+    badge.className='pih-reading-time';
+    badge.setAttribute('aria-label','Estimated reading time');
+    badge.textContent='⏱️ '+mins+' min read';
+    el.parentNode.insertBefore(badge,el);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addReadingTime); else addReadingTime();
+  new MutationObserver(addReadingTime).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
+</body>
+</html>
+
