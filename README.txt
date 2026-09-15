@@ -1,17 +1,5 @@
-PakInfoHub V44 - Netlify-ready / GitHub-ready package
+PakInfoHub V45 - GitHub-ready repair release
 
-V44 adds an offline/online network status indicator for better PWA usability. Existing V27-V43 features are preserved.
+V45 fixes a deployment/rendering issue in V44 where the V35 Reading Position block was missing its opening <script> tag, causing JavaScript source to appear visibly at the bottom of the page. V45 restores the correct script boundaries while preserving V44 features.
 
-Files:
-- index.html: production website
-- manifest.webmanifest: PWA metadata
-- sw.js: service worker with V44 cache version
-
-Deployment:
-- GitHub: upload/commit these files to the PakInfoHub repository.
-- Netlify Drop: upload this folder or its ZIP when production deploys are available.
-
-V44 improvement:
-- Shows a clear offline notice when the device loses internet connectivity.
-- Shows a brief confirmation when connectivity returns.
-- Offline notice is hidden during printing.
+Files: index.html, manifest.webmanifest, sw.js, README.txt
