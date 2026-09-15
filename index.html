@@ -192,6 +192,13 @@ body.focus-reading .article-content{font-size:19px;line-height:1.95}
 /* ===== PakInfoHub V43: Estimated Reading Time ===== */
 .pih-reading-time{display:inline-flex;align-items:center;gap:6px;margin:8px 0;padding:5px 10px;border-radius:999px;font-size:.85rem;opacity:.82;background:rgba(127,127,127,.12)}
 @media print{.pih-reading-time{background:none}}
+/* ===== PakInfoHub V44: Network status indicator ===== */
+#pihNetworkStatus{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:1200;display:none;max-width:calc(100% - 24px);padding:8px 14px;border-radius:999px;background:#26312c;color:#fff;font-size:13px;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.18);text-align:center}
+#pihNetworkStatus.show{display:block}
+#pihNetworkStatus.offline{background:#8a3d2f}
+#pihNetworkStatus.online{background:#087f5b}
+@media(max-width:700px){#pihNetworkStatus{top:7px;font-size:12px;padding:7px 11px}}
+@media print{#pihNetworkStatus{display:none!important}}
 
 </style>
 
@@ -240,6 +247,7 @@ body.dark-mode .tts-btn,body.dark-mode .tts-panel{background:#17201d;color:var(-
 <div id="offlineNote" class="offline-note">📡 You are offline. Previously loaded PakInfoHub content may still be available.</div>
 
 <div id="readingProgress" aria-hidden="true"></div>
+<div id="pihNetworkStatus" role="status" aria-live="polite"></div>
 
 <header>
   <h1>PakInfoHub</h1>
@@ -1981,6 +1989,28 @@ function shareToX(){ const title=(document.getElementById('articleTitle')||{}).t
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addReadingTime); else addReadingTime();
   new MutationObserver(addReadingTime).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
+
+<script>
+/* ===== PakInfoHub V44: Network status indicator ===== */
+(function(){
+  const el=document.getElementById('pihNetworkStatus');
+  if(!el)return;
+  let hideTimer=null;
+  function show(message,kind,autoHide){
+    el.textContent=message;
+    el.className='show '+kind;
+    if(hideTimer)clearTimeout(hideTimer);
+    if(autoHide)hideTimer=setTimeout(()=>{el.className='';},2800);
+  }
+  function updateInitial(){
+    if(!navigator.onLine) show('⚠️ You are offline — cached pages may still be available.','offline',false);
+  }
+  window.addEventListener('offline',()=>show('⚠️ You are offline — cached pages may still be available.','offline',false));
+  window.addEventListener('online',()=>show('✓ Back online','online',true));
+  updateInitial();
 })();
 </script>
 
